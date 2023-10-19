@@ -1,3 +1,8 @@
+// для обробки кліку на логотипі
+document.getElementById('logo').addEventListener('click', function () {
+  window.location.href = '../index.html';
+});
+
 // код для обробки форми підписки
 document
   .getElementById('subscription-form')
@@ -18,12 +23,12 @@ document
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          alert('Ви успішно підписались на розсилку нових вправ!');
+          alert('You have successfully subscribed to receive new exercises!');
         } else {
-          alert('Помилка при підписці. Спробуйте ще раз.');
+          alert('Subscription error. Please try again.');
         }
       })
       .catch(error => {
-        alert('Помилка при відправці запиту. Спробуйте ще раз пізніше.');
+        alert('Request error. Please try again later.');
       });
   });
