@@ -8,3 +8,4 @@ import './js/favorites';
 import './js/footer';
 import './js/loader';
 import './js/scroll-down';
+import '../src/js/api/api';
