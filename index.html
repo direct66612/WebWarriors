@@ -6,11 +6,165 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     
-    <script type="module" crossorigin src="/WebWarriors/assets/api-7a34c457.js"></script>
-    <link rel="stylesheet" href="/WebWarriors/assets/api-8903b11c.css">
+    <script type="module" crossorigin src="/WebWarriors/assets/api-6933fedb.js"></script>
+    <link rel="stylesheet" href="/WebWarriors/assets/api-d25f4c69.css">
   </head>
   <body>
-    <header class="header"></header>
+    <header class="header">
+  <div class="container header__container">
+    <nav class="header__nav">
+      <a class="logo" href="./index.html">
+        <!-- <img src="./img/logo.svg" /> -->
+        <svg class="logo__svg">
+          <use
+            class="logo__use"
+            href="../img/symbol-defs.svg#icon-logo-icon"
+          ></use>
+        </svg>
+      </a>
+      <ul class="header__list">
+        <li class="list__item">
+          <a class="list__link">Home</a>
+        </li>
+        <li class="list__item">
+          <a class="list__link">Favorites</a>
+        </li>
+      </ul>
+      <address>
+        <ul class="header__address">
+          <li>
+            <a
+              class="address__link"
+              href="https://www.facebook.com/goITclub/"
+              target="_blank"
+            >
+              <svg class="address__svg" width="44" height="44">
+                <use href="../img/symbol-defs.svg#icon-header-facebook"></use>
+              </svg>
+              <!-- <img src="./img/facebook.svg" /> -->
+            </a>
+          </li>
+          <li>
+            <a
+              class="address__link"
+              href="https://www.instagram.com/goitclub/"
+              target="_blank"
+            >
+              <svg class="address__svg" width="44" height="44">
+                <use href="../img/symbol-defs.svg#icon-header-instagram"></use>
+              </svg>
+              <!-- <img src="./img/instagram.svg" /> -->
+            </a>
+          </li>
+          <li>
+            <a
+              class="address__link"
+              href="https://www.youtube.com/c/GoIT"
+              target="_blank"
+            >
+              <svg class="address__svg" width="44" height="44">
+                <use href="../img/symbol-defs.svg#icon-header-youtube"></use>
+              </svg>
+              <!-- <img src="./img/youtube.svg" /> -->
+            </a>
+          </li>
+        </ul>
+      </address>
+    </nav>
+  </div>
+  <div class="mobile-menu">
+    <div class="container">
+      <div class="mobile-menu__wrapper">
+        <a class="logo" href="./index.html">
+          <svg class="logo__svg">
+            <use href="../img/symbol-defs.svg#icon-logo-icon"></use>
+          </svg>
+          <!-- <img src="./img/logo.svg" /> -->
+        </a>
+        <button class="menu-mob__open-btn" data-menu-open type="button">
+          <svg class="menu-mob__close-ico" width="24" height="24">
+            <use href="../img/symbol-defs.svg#icon-burger-menu"></use>
+          </svg>
+          <!-- <img src="./img/burger.svg" /> -->
+        </button>
+      </div>
+      <div class="mobile-menu__wrapper--wide" data-menu>
+        <div class="container--mobile">
+          <button class="menu-mob__close-btn" data-menu-close type="button">
+            <!-- <svg class="menu-mob__close-ico" width="24" height="24">
+                <use href="./img/sprite.svg#close"></use>
+              </svg> -->
+            <!-- <img src="./img/x.svg" /> -->
+          </button>
+          <nav>
+            <ul class="mobile-list">
+              <li class="mobile-list__item">
+                <a class="mobile-list__text menu-box-link" href="#home">Home</a>
+              </li>
+              <li class="mobile-list__item">
+                <a class="mobile-list__text menu-box-link--s" href="#favorites"
+                  >Favorites</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <address>
+            <ul class="header__address--mobile">
+              <li>
+                <a
+                  class="address__link--mobile"
+                  href="https://www.facebook.com/goITclub/"
+                  target="_blank"
+                >
+                  <svg class="address__svg--mobile">
+                    <use
+                      href="../img/symbol-defs.svg#icon-header-facebook"
+                      width="44"
+                      height="44"
+                    ></use>
+                  </svg>
+                  <!-- <img src="./img/facebook.svg" /> -->
+                </a>
+              </li>
+              <li>
+                <a
+                  class="address__link--mobile"
+                  href="https://www.instagram.com/goitclub/"
+                  target="_blank"
+                >
+                  <svg class="address__svg--mobile">
+                    <use
+                      href="../img/symbol-defs.svg#icon-header-instagram"
+                      width="44"
+                      height="44"
+                    ></use>
+                  </svg>
+                  <!-- <img src="./img/instagram.svg" /> -->
+                </a>
+              </li>
+              <li>
+                <a
+                  class="address__link--mobile"
+                  href="https://www.youtube.com/c/GoIT"
+                  target="_blank"
+                >
+                  <svg class="address__svg--mobile">
+                    <use
+                      href="../img/symbol-defs.svg#icon-header-youtube"
+                      width="44"
+                      height="44"
+                    ></use>
+                  </svg>
+                  <!-- <img src="./img/youtube.svg" /> -->
+                </a>
+              </li>
+            </ul>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
     <main>
       <section class="hero">
