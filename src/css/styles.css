@@ -7,28 +7,11 @@
 @import url('./exercises.css');
 @import url('./favorites.css');
 @import url('../../node_modules/modern-normalize/modern-normalize.css');
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 :root {
   font-size: 14px;
   color: #242424;
   font-family: 'PP Neue Montreal', sans-serif;
   font-style: normal;
   font-weight: 400;
-}
-@font-face {
-  font-family: 'PP Neue Montreal', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/ppneuemontreal-book.otf');
-}
-@font-face {
-  font-family: 'PP Neue Montreal', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  src: url('../fonts/ppneuemontreal-medium.otf');
-}
-@font-face {
-  font-family: 'PP Neue Montreal', sans-serif;
-  font-style: italic;
-  font-weight: 400;
-  src: url('../fonts/ppneuemontreal-italic.otf');
 }
