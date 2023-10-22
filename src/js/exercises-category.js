@@ -19,17 +19,21 @@ const filters = {
     equipment: "Equipment",
 }
 
-const objBodyParts = refs.bodyPartsItem.addEventListener('click', 
-        getExercisesMarkup(filters.bodyParts).then((data) => {addMarkup(data)})
+const objBodyParts =  refs.bodyPartsItem.addEventListener('click', () => {
+   getExercisesMarkup(filters.bodyParts).then((data) => {(addMarkup(data))})
+}
         );
-const objMuscles = refs.musclesItem.addEventListener('click', 
-        getExercisesMarkup(filters.muscles).then(data => {add(data)})
-        ); 
-const objEquipment = refs.equipmentItem.addEventListener('click',
-        getExercisesMarkup(filters.equipment).then(data => {addMarkup(data)})
+const objMuscles = refs.musclesItem.addEventListener('click', () => {
+    getExercisesMarkup(filters.muscles).then((data) => {(addMarkup(data))})
+}
+        );
+      
+const objEquipment = refs.equipmentItem.addEventListener('click', () => {
+    getExercisesMarkup(filters.equipment).then((data) => {(addMarkup(data))})
+}
         );
 
-//console.log(objMuscles); //ПРОВЕРКА
+//console.log(objBodyParts); //ПРОВЕРКА
 
 
 
@@ -42,5 +46,6 @@ function addMarkup(data) {
     }
     
 
-getExercisesMarkup();
-addMarkup();
+// getExercisesMarkup();
+// addMarkup();
+getExercisesMarkup(filters.bodyParts).then((data) => {(addMarkup(data))})
