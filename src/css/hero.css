@@ -42,14 +42,18 @@
     gap: 6px;
 }
 
-.hero-tag-item {}
-
 .hero-tag-link {
     color: #242424;
     line-height: 18px;
     border-radius: 30px;
     border: 1px solid #242424;
     padding: 4px 16px;
+}
+
+.hero-tag-link:hover,
+.hero-tag-link:focus {
+    background-color: #242424;
+    color: #F4F4F4;
 }
 
 .hero-img-small {
