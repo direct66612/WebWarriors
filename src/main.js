@@ -10,3 +10,4 @@ import './js/api-service/exercises-api';
 import './js/api-service/categories-api';
 import './js/templates/exercises-markup';
 import './js/exercises';
+import './js/exercises-category.js'
