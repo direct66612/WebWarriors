@@ -1,6 +1,3 @@
-import axios from 'axios';
-import Notiflix from 'notiflix';
-
 import './js/header';
 import './js/exercises-aside';
 import './js/exercises-main';
@@ -9,3 +6,7 @@ import './js/footer';
 import './js/loader';
 import './js/scroll-down';
 import '../src/js/api/api';
+import './js/api-service/exercises-api';
+import './js/api-service/categories-api';
+import './js/templates/exercises-markup';
+import './js/exercises';
