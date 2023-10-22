@@ -1,3 +1,5 @@
+import lodash from 'lodash';
+
 const mobileMenu = document.querySelector('[data-menu]');
 const openMenuBtn = document.querySelector('[data-menu-open]');
 const closeMenuBtn = document.querySelector('[data-menu-close]');
@@ -22,3 +24,21 @@ openMenuBtn.addEventListener('click', toggleMenu);
 closeMenuBtn.addEventListener('click', toggleMenu);
 openMobileMenuLink.addEventListener('click', toggleMenu);
 openMobileMenuLinkS.addEventListener('click', toggleMenu);
+
+const toEscPress = evt => {
+  if (evt.key === 'Escape') {
+    mobileMenu.classList.remove('is-open');
+  }
+};
+
+const container = document.querySelector('.container');
+document.body.addEventListener('keyup', toEscPress);
+
+window.addEventListener(
+  'resize',
+  lodash.throttle(function () {
+    if (container.offsetWidth > 0) {
+      mobileMenu.classList.remove('is-open');
+    }
+  }, 1000)
+);
