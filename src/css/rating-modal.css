@@ -1,0 +1,282 @@
+/* @font-face {
+  font-family: 'Neue Montreal';
+  src: url('../fonts/NeueMontreal-Regular.otf');
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('../fonts/NeueMontreal-Italic.otf');
+  font-style: italic;
+  font-weight: 400;
+}
+
+body {
+  font-family: 'Neue Montreal', sans-serif;
+} */
+
+.backdrop {
+  background-color: rgb(4, 4, 4, 0.4);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.close-rating-btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+}
+
+.close {
+  stroke: #f4f4f4;
+}
+
+.rating-feedback-form {
+  padding: 40px 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 335px;
+  height: 357px;
+  border-radius: 20px;
+  z-index: 100;
+  background: #242424;
+}
+
+@media screen and (min-width: 768px) {
+  .rating-feedback-form {
+    width: 430px;
+    height: 412px;
+    padding: 40px;
+  }
+}
+
+.rating-modal-title {
+  color: rgba(244, 244, 244, 0.4);
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .rating-stars {
+    margin-bottom: 32px;
+  }
+}
+
+.rating-number {
+  color: #f4f4f4;
+  display: block;
+  width: 17px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.rating-user-email,
+.rating-user-comment {
+  color: rgba(244, 244, 244, 0.6);
+  background-color: transparent;
+  border: 1px solid #f4f4f4;
+  /* #f4f4f4 */
+  border-radius: 30px;
+  padding: 12px 14px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.29;
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .rating-user-email,
+  .rating-user-comment {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.rating-user-email {
+  margin-bottom: 10px;
+  height: 42px;
+}
+
+.rating-user-comment {
+  resize: none;
+  height: 93px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .rating-user-email {
+    margin-bottom: 16px;
+    height: 48px;
+  }
+
+  .rating-user-comment {
+    margin-bottom: 32px;
+    height: 106px;
+  }
+}
+
+.star-radio {
+  display: none;
+}
+
+.star-label {
+  cursor: pointer;
+}
+
+.star-label:hover > .star {
+  cursor: pointer;
+  fill: #eea10c;
+  fill-opacity: 1;
+}
+
+.star {
+  fill: rgba(244, 244, 244, 0.2);
+}
+
+.star,
+.star use {
+  pointer-events: none;
+}
+
+.star-active {
+  fill: #eea10c;
+  fill-opacity: 1;
+}
+
+/* .star:hover {
+  cursor: pointer;
+  fill: #eea10c;
+  fill-opacity: 1;
+} */
+.rating-submit-btn {
+  display: block;
+  border-radius: 30px;
+  background-color: #f4f4f4;
+  width: 100%;
+  height: 42px;
+  /* padding: 12px 131px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  color: #242424;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.285;
+  transition: color, border, background-color 200ms ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .rating-submit-btn {
+    height: 48px;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+}
+
+.rating-submit-btn:hover {
+  color: #f4f4f4;
+  border: 1px solid #f4f4f4;
+  background-color: transparent;
+}
+
+.animate {
+  animation-name: stretch-bounce;
+  animation-duration: 1500ms;
+}
+.error{
+    animation-name: error;
+    animation-duration: 500ms;
+}
+
+@keyframes stretch-bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.5);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes error {
+    0% {
+        transform: translateX(0px);
+        timing-function: ease-in;
+    }
+
+    37% {
+        transform: translateX(5px);
+        timing-function: ease-out;
+    }
+
+    55% {
+        transform: translateX(-5px);
+        timing-function: ease-in;
+    }
+
+    73% {
+        transform: translateX(4px);
+        timing-function: ease-out;
+    }
+
+    82% {
+        transform: translateX(-4px);
+        timing-function: ease-in;
+    }
+
+    91% {
+        transform: translateX(2px);
+        timing-function: ease-out;
+    }
+
+    96% {
+        transform: translateX(-2px);
+        timing-function: ease-in;
+    }
+
+    100% {
+        transform: translateX(0px);
+        timing-function: ease-in;
+    }
+}
