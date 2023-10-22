@@ -40,7 +40,11 @@ img {
   padding-right: 15px;
   padding-left: 15px;
 }
-
+.exercises {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 80px;
+}
 @media screen and (max-width: 374px) {
   .container {
     max-width: 100%;
@@ -63,10 +67,17 @@ img {
     padding-right: 32px;
     padding-left: 32px;
   }
+  .exercises {
+    gap: 64px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
     width: 1440px;
+  }
+  .exercises {
+    flex-direction: row;
+    gap: 32px;
   }
 }
