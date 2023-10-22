@@ -1,4 +1,4 @@
-.favorites {
+body {
   background: #f4f4f4;
 }
 .favorites-container {
@@ -17,7 +17,7 @@
   margin-top: 20px;
 }
 .favorites-aside-content {
-  height: calc(318px + 119px - 20px);
+  height: calc(119px + 119px + 159px + 20px + 20px);
   outline: rgb(150, 150, 150) solid 1px;
 }
 .favorites-exercise-wrapper {
@@ -27,6 +27,7 @@
   max-width: 318px;
   text-align: center;
   line-height: 18px;
+  display: none;
 }
 .favorites-exercise-card-wrapper {
   display: flex;
@@ -208,9 +209,5 @@
   }
   .exercise-card-bottom {
     gap: 16px;
-  }
-  .favorites {
-    width: 100vw;
-    height: 100vh;
   }
 }
