@@ -1,0 +1,84 @@
+.exercises-main-title {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 40px;
+    color: #242424;
+    font-family: Neue Montreal;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: -0.56px;
+}
+
+.exercises-filter-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.exercises-filter-btn {    
+    background-color: unset;
+    border: none;  
+    color: #242424;
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;    
+}
+
+.container-for-h2-and-p-card {
+    width: 137px;
+    height: 40px;  
+}
+
+.container-exercises-markup {
+    width: 335px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.list-for-new-exercises {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.new-exercises-item {
+    width: 335px;
+    height: 225px;
+    border-radius: 12px;    
+}
+
+.exercises-filter-IMG {     
+    height: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 12px;    
+}
+.exercises-title-of-item {
+    text-align: center;    
+    font-family: Neue Montreal;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: #F4F4F4;
+}
+.exercises-text-of-item {
+    text-align: center;
+    font-family: Neue Montreal;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    color: #F4F4F4;
+}
