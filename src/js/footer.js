@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             throw Error('Request error. Please try again later.');
           } else {
             alert('You have successfully subscribed to receive new exercises!');
-            //alert('Subscription error. Please try again.');
+            emailInput.value = ''; // Очистити поле email
           }
         })
         .catch(error => {

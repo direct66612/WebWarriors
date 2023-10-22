@@ -330,6 +330,12 @@ footer {
 
 @media screen and (min-width: 1440px) {
 
+  .footer {
+    max-width: 100%;
+    flex-direction: row;
+    flex-direction: column;
+  }
+
   .style-footer {
     justify-content: left;
   }
