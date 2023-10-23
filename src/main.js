@@ -12,4 +12,5 @@ import './js/templates/exercises-markup';
 import './js/exercises';
 import './js/exercises-category.js'
 import './js/templates/exercises-category-markup.js';
-import './js/modal-ex'
+import './js/scroll-up';
+import './js/modal-ex';
