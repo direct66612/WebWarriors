@@ -2,7 +2,7 @@
 
 export function createMarkup(array) {
     return array.map(({filter, name, imgURL}) => {
-      return `<li class = "new-exercises-item">  
+      return `<li class = "new-exercises-item" data-category='${name}')>  
 
          <div class = "exercises-filter-IMG" style="
          background: linear-gradient(
@@ -21,7 +21,7 @@ export function createMarkup(array) {
           <div class="container-for-h2-and-p-card">
             <h2 class="exercises-title-of-item">${name}</h2>
             <p class="exercises-text-of-item">${filter}</p>
-          </divc>              
+          </div>              
         </div>            
         </li>`
     }).join('');
