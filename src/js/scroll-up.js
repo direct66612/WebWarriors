@@ -1,4 +1,4 @@
-let topButton = document.querySelector(".top-button");
+let scrollButton = document.querySelector(".top-button");
 
 window.onscroll = function () {
   scrollFunction();
@@ -9,13 +9,13 @@ function scrollFunction() {
     document.body.scrollTop > 200 ||
     document.documentElement.scrollTop > 200
   ) {
-    topButton.style.display = "block";
+    scrollButton.style.display = "block";
   } else {
-    topButton.style.display = "none";
+    scrollButton.style.display = "none";
   }
 }
 
-topButton.addEventListener("click", backToTop);
+scrollButton.addEventListener("click", backToTop);
 
 function backToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
