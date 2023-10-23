@@ -10,13 +10,24 @@ const arr = [
   '64f389465ae26083f39b17df',
   '64f389465ae26083f39b17a5',
   '64f389465ae26083f39b17b7',
+  '64f389465ae26083f39b17ba',
+  '64f389465ae26083f39b180e',
+  '64f389465ae26083f39b189e',
+  '64f389465ae26083f39b18ae',
+  '64f389465ae26083f39b18d7',
+  '64f389465ae26083f39b190d',
 ];
 
 arr.map(id => {
   exerciseService(id).then(({ bodyPart, name, target, burnedCalories }) => {
     refs.exercisesWrapper.insertAdjacentHTML(
       'beforeend',
-      createMarkup(bodyPart, firstLetterUpperCase(name), target, burnedCalories)
+      createMarkup(
+        firstLetterUpperCase(bodyPart),
+        firstLetterUpperCase(name),
+        firstLetterUpperCase(target),
+        burnedCalories
+      )
     );
   });
 });
@@ -51,7 +62,7 @@ function createMarkup(part, title, target, calories) {
                         width="16"
                         height="16">
                         <use
-                          href="./img/symbol-defs.svg#icon-exercises-content-garbage"
+                          href="/img/symbol-defs.svg#icon-exercises-content-garbage"
                         ></use>
                       </svg>
                     </button>
@@ -62,7 +73,7 @@ function createMarkup(part, title, target, calories) {
                         width="16"
                         height="16">
                         <use
-                          href="./img/symbol-defs.svg#icon-scroll-arrow"
+                          href="/img/symbol-defs.svg#icon-scroll-arrow"
                         ></use>
                       </svg>
                     </button>
@@ -73,7 +84,7 @@ function createMarkup(part, title, target, calories) {
                         class="exercise-card-man-icon"
                         width="20"
                         height="20">
-                        <use href="./img/symbol-defs.svg#icon-aside-men"></use>
+                        <use href="/img/symbol-defs.svg#icon-aside-men"></use>
                       </svg>
                     </div>
                     <h3 class="exercise-card-title">${title}</h3>
