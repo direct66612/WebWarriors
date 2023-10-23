@@ -20,20 +20,32 @@ const arr = [
   '64f389465ae26083f39b190d',
 ];
 
-getFavoriteExerciseData(arr).then(response => {
-  response.map(({ data }) => {
-    const { bodyPart, name, target, burnedCalories } = data;
-    refs.exercisesWrapper.insertAdjacentHTML(
-      'afterbegin',
-      createMarkup(
-        firstLetterUpperCase(bodyPart),
-        firstLetterUpperCase(name),
-        firstLetterUpperCase(target),
-        burnedCalories
-      )
-    );
+renderMarkup();
+addListener();
+function addListener() {
+  refs.removeBtn.addEventListener('click', () => {
+    removeValueFromArray(arr, '64f389465ae26083f39b17b7');
+    refs.exercisesWrapper.innerHTML = '';
+    renderMarkup();
   });
-});
+}
+
+function renderMarkup() {
+  getFavoriteExerciseData(arr).then(response => {
+    response.map(({ data }) => {
+      const { bodyPart, name, target, burnedCalories } = data;
+      refs.exercisesWrapper.insertAdjacentHTML(
+        'afterbegin',
+        createMarkup(
+          firstLetterUpperCase(bodyPart),
+          firstLetterUpperCase(name),
+          firstLetterUpperCase(target),
+          burnedCalories
+        )
+      );
+    });
+  });
+}
 
 async function getFavoriteExerciseData(ids) {
   const arrayOfPromises = ids.map(async id => {
@@ -98,3 +110,15 @@ function createMarkup(part, title, target, calories) {
                   </div>
                 </div>`;
 }
+
+function removeValueFromArray(array, value) {
+  const index = array.indexOf(value);
+  if (index > -1) {
+    array.splice(index, 1);
+  }
+}
+console.log(arr);
+
+removeValueFromArray(arr, '64f389465ae26083f39b17b7');
+
+console.log(arr);
