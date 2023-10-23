@@ -37,7 +37,7 @@ Notiflix needs to be appended to the "<`+m+'>" element, but you called it before
                         width="16"
                         height="16">
                         <use
-                          href="img/symbol-defs.svg#icon-exercises-content-garbage"
+                          href="/WebWarriors/assets/symbol-defs.svg#icon-exercises-content-garbage"
                         ></use>
                       </svg>
                     </button>
