@@ -11,7 +11,7 @@ export async function getExercisesMarkup(value) {
 
   return await axios.get(`/filters`, {params} )
    .then((resp) => {
-    return resp.data.results;
+    return resp.data;
 });
 }
  

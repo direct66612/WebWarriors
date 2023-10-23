@@ -19,7 +19,6 @@ const arr = [
   '64f389465ae26083f39b18d7',
   '64f389465ae26083f39b190d',
 ];
-
 renderMarkup();
 addListener();
 function addListener() {
