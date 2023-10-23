@@ -121,8 +121,8 @@ footer {
 
 #subscribe-button {
   display: flex;
-  width: 335px;
-  padding: 12px 152px;
+  max-width: 335px;
+  padding: 12px 0px;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -137,13 +137,13 @@ footer {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 12px 14px 12px 14px;
+  padding: 12px 0;
   align-items: center;
   border-radius: 30px;
   border: 1px solid #F4F4F4;
   background-color: #242424;
   color: rgba(244, 244, 244, 0.60);
-  width: 335px;
+  max-width: 335px;
 }
 
 .copyright {
