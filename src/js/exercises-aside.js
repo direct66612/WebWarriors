@@ -7,11 +7,6 @@ async function getQuote() {
   return response.data;
 }
 
-const refs = {
-  quoteContainer: document.querySelector('.quote'),
-  // quoteFavContainer: document.querySelector('.favorites-quote'),
-};
-
 const savedDate = localStorage.getItem('quoteDate');
 const currentDate = new Date().toDateString();
 
@@ -19,25 +14,29 @@ if (savedDate === currentDate) {
   const savedQuote = localStorage.getItem('quote');
   const savedAuthor = localStorage.getItem('author');
   const savedData = { quote: savedQuote, author: savedAuthor };
-  refs.quoteContainer.insertAdjacentHTML(
-    'beforeend',
-    createMarkupQuote(savedData)
-  );
-  // refs.quoteFavContainer.insertAdjacentHTML(
-  //   'beforeend',
-  //   createMarkupFavQuote(savedData)
-  // );
+  if (document.querySelector('.quote') !== null) {
+    document
+      .querySelector('.quote')
+      .insertAdjacentHTML('beforeend', createMarkupQuote(savedData));
+  }
+  if (document.querySelector('.favorites-quote') !== null) {
+    document
+      .querySelector('.favorites-quote')
+      .insertAdjacentHTML('beforeend', createMarkupFavQuote(savedData));
+  }
 } else {
   getQuote()
     .then(data => {
-      refs.quoteContainer.insertAdjacentHTML(
-        'beforeend',
-        createMarkupQuote(data)
-      );
-      // refs.quoteFavContainer.insertAdjacentHTML(
-      //   'beforeend',
-      //   createMarkupFavQuote(data)(data)
-      // );
+      if (document.querySelector('.quote') !== null) {
+        document
+          .querySelector('.quote')
+          .insertAdjacentHTML('beforeend', createMarkupQuote(data));
+      }
+      if (document.querySelector('.favorites-quote') !== null) {
+        document
+          .querySelector('.favorites-quote')
+          .insertAdjacentHTML('beforeend', createMarkupFavQuote(data));
+      }
       localStorage.setItem('quote', data.quote);
       localStorage.setItem('author', data.author);
       localStorage.setItem('quoteDate', currentDate);
