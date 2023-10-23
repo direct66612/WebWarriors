@@ -16,10 +16,6 @@ body {
 .favorites-wrapper {
   margin-top: 20px;
 }
-.favorites-aside-content {
-  height: calc(119px + 119px + 159px + 20px + 20px);
-  outline: rgb(150, 150, 150) solid 1px;
-}
 .favorites-exercise-wrapper {
   margin-top: 40px;
 }
@@ -123,14 +119,18 @@ body {
   margin-top: 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 .exercice-card-indexes {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   color: rgba(36, 36, 36, 0.4);
   font-size: 12px;
   line-height: 18px;
 }
 .exercice-card-indexes-values {
+  margin-right: 10px;
   color: #242424;
 }
 @media screen and (min-width: 768px) {
@@ -146,9 +146,6 @@ body {
   }
   .favorites-wrapper {
     margin-top: 32px;
-  }
-  .favorites-aside-content {
-    height: calc(141px + 236px);
   }
   .favorites-not-found-text {
     max-width: 554px;
@@ -170,6 +167,10 @@ body {
     max-width: calc((100% - 16px) / 2);
   }
   .exercise-card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     font-size: 24px;
     line-height: 32px;
   }
@@ -187,11 +188,6 @@ body {
     padding-bottom: 51px;
     max-width: 1440px;
   }
-  .favorites-aside-content {
-    height: calc(141px + 246px);
-    width: 494px;
-    margin-bottom: 151px;
-  }
   .favorites-wrapper {
     display: flex;
     gap: 32px;
@@ -204,6 +200,32 @@ body {
   .favorites-exercise-wrapper {
     margin-top: 0;
   }
+  .favorites-exercise-card-wrapper {
+    height: 496px;
+    overflow-y: auto;
+  }
+
+  /* width */
+  .favorites-exercise-card-wrapper::-webkit-scrollbar {
+    width: 8px;
+  }
+  /* Track */
+  .favorites-exercise-card-wrapper::-webkit-scrollbar-track {
+    border-radius: 12px;
+    background: rgba(36, 36, 36, 0.1);
+  }
+  /* Handle */
+  .favorites-exercise-card-wrapper::-webkit-scrollbar-thumb {
+    background: #242424;
+    border-radius: 12px;
+    transition: 300ms ease-in-out;
+  }
+  /* Handle on hover */
+  .favorites-exercise-card-wrapper::-webkit-scrollbar-thumb:hover {
+    width: 10px;
+    background: #555;
+  }
+
   .favorites-exercise-card {
     max-width: 405px;
   }
