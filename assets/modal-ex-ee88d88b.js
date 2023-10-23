@@ -37,7 +37,7 @@ Notiflix needs to be appended to the "<`+m+'>" element, but you called it before
                         width="16"
                         height="16">
                         <use
-                          href="/WebWarriors/assets/symbol-defs.svg#icon-exercises-content-garbage"
+                          href="../img/symbol-defs.svg#icon-exercises-content-garbage"
                         ></use>
                       </svg>
                     </button>
@@ -48,7 +48,7 @@ Notiflix needs to be appended to the "<`+m+'>" element, but you called it before
                         width="16"
                         height="16">
                         <use
-                          href="img/symbol-defs.svg#icon-scroll-arrow"
+                          href="../img/symbol-defs.svg#icon-scroll-arrow"
                         ></use>
                       </svg>
                     </button>
@@ -59,7 +59,7 @@ Notiflix needs to be appended to the "<`+m+'>" element, but you called it before
                         class="exercise-card-man-icon"
                         width="20"
                         height="20">
-                        <use href="img/symbol-defs.svg#icon-aside-men"></use>
+                        <use href="../img/symbol-defs.svg#icon-aside-men"></use>
                       </svg>
                     </div>
                     <h3 class="exercise-card-title">${a}</h3>
