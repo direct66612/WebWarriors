@@ -77,7 +77,7 @@ function createMarkup(part, title, target, calories) {
                         width="16"
                         height="16">
                         <use
-                          href="/WebWarriors/assets/symbol-defs.svg#icon-exercises-content-garbage"
+                          href="../img/symbol-defs.svg#icon-exercises-content-garbage"
                         ></use>
                       </svg>
                     </button>
@@ -88,7 +88,7 @@ function createMarkup(part, title, target, calories) {
                         width="16"
                         height="16">
                         <use
-                          href="img/symbol-defs.svg#icon-scroll-arrow"
+                          href="../img/symbol-defs.svg#icon-scroll-arrow"
                         ></use>
                       </svg>
                     </button>
@@ -99,7 +99,7 @@ function createMarkup(part, title, target, calories) {
                         class="exercise-card-man-icon"
                         width="20"
                         height="20">
-                        <use href="img/symbol-defs.svg#icon-aside-men"></use>
+                        <use href="../img/symbol-defs.svg#icon-aside-men"></use>
                       </svg>
                     </div>
                     <h3 class="exercise-card-title">${title}</h3>
