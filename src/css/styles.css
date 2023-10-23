@@ -6,6 +6,7 @@
 @import url('./exercises-aside.css');
 @import url('./exercises-main.css');
 @import url('./exercises.css');
+@import url('./modal-ex.css');
 @import url('./favorites.css');
 @import url('../../node_modules/modern-normalize/modern-normalize.css');
 :root {
