@@ -6,7 +6,8 @@ const ratingRefs = {
   ratingForm: document.querySelector('.rating-feedback-form'),
   stars: document.querySelectorAll('.star'),
 };
-ratingRefs.ratingStars.closeBtn.addEventListener('click',ratingModalClose)
+ratingRefs.closeBtn.addEventListener('click',ratingModalClose)
+
 ratingRefs.ratingStars.addEventListener('change', onStarClick);
 
 ratingRefs.ratingForm.userEmail.addEventListener('input', emailValidator);
@@ -116,7 +117,7 @@ function rateFormSubmit(ev) {
     ev.currentTarget.elements.userEmail.value,
     ev.currentTarget.elements.comment.value
   );
-  servicePatchRate(ev.currentTarget.dataset.id, rateObj);
+  servicePatchRate(currentExerciseId, rateObj);
   setDefaultColorInput(ev.currentTarget.elements.userEmail);
   setDefaultColorInput(ev.currentTarget.elements.comment);
   starsColorReset(ratingRefs.stars);
