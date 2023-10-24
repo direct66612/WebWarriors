@@ -19,8 +19,9 @@ const arr = [
   '64f389465ae26083f39b18d7',
   '64f389465ae26083f39b190d',
 ];
+
 renderMarkup();
-addListener();
+
 function addListener() {
   refs.removeBtn.addEventListener('click', () => {
     removeValueFromArray(arr, '64f389465ae26083f39b17b7');
