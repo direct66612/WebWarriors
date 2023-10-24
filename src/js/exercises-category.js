@@ -18,14 +18,11 @@ const refs = {
   musclesItem: document.querySelector('.filter-of-muscles'),
   equipmentItem: document.querySelector('.filter-of-equipment'),
   pagination: document.querySelector('.pagination-nav'),
+  title: document.querySelector('.exercises-main-title'),
+  form: document.querySelector('.js-form'),
 };
 
 let page = 1;
-
-// const categoriesSearchParams = {
-//   filter: 'Body parts',
-//   limit: window.innerWidth < 768 ? 9 : 12,
-// };
 
 refs.list.addEventListener('click', handleFilter);
 
@@ -49,6 +46,8 @@ function handleFilter(event) {
     return;
   }
 
+  refs.title.textContent = 'Exercise';
+  refs.form.classList.add('is-hidden');
   // categoriesSearchParams.filter = filter;
   refs.list.dataset.filter = filter;
   getExercisesMarkup(filter, page)
