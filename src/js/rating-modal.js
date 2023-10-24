@@ -1,3 +1,4 @@
+import {currentExerciseId} from './modal-ex';
 import axios from 'axios';
 import Notiflix, { Notify } from 'notiflix';
 const ratingRefs = {
@@ -5,6 +6,9 @@ const ratingRefs = {
   ratingStars: document.querySelector('.rating-stars'),
   ratingForm: document.querySelector('.rating-feedback-form'),
   stars: document.querySelectorAll('.star'),
+  openModalBtn: document.querySelector('.btn-give-rating'),
+  exerciseModal: document.querySelector('.modal-ex'),
+  ratingNumber:document.querySelector('.rating-number')
 };
 ratingRefs.closeBtn.addEventListener('click',ratingModalClose)
 
@@ -121,18 +125,22 @@ function rateFormSubmit(ev) {
   setDefaultColorInput(ev.currentTarget.elements.userEmail);
   setDefaultColorInput(ev.currentTarget.elements.comment);
   starsColorReset(ratingRefs.stars);
+  ratingRefs.ratingNumber.textContent = '0.0'
   ev.currentTarget.reset();
   ratingModalClose();
 }
-
+ratingRefs.openModalBtn.addEventListener('click',ratingModalOpen)
 function ratingModalOpen(ev) {
-  ratingRefs.ratingForm.dataset.id = ev.currentTarget.dataset.id;
+  // ratingRefs.ratingForm.dataset.id = ev.currentTarget.dataset.id;
   ratingRefs.ratingForm.classList.remove('is-hidden');
+  console.log(currentExerciseId)
+  ratingRefs.exerciseModal.classList.add('is-hidden');
   // !Тут Дмитро закриває свою модалку ()=>{ виклик моєї функції, +закриття його модалки}
 }
 
 function ratingModalClose() {
   ratingRefs.ratingForm.classList.add('is-hidden');
-  // !Тут відкривається попередня модалка...
+  ratingRefs.exerciseModal.classList.remove('is-hidden');
+
+
 }
-export const openRatingModal = ratingModalOpen;
