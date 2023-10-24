@@ -1,6 +1,6 @@
 import axios from 'axios';
 import notiflix from 'notiflix';
-
+import svgSprite from '../img/symbol-defs.svg';
 const refs = {
   notFoundText: document.querySelector('.favorites-not-found-text'),
   exercisesWrapper: document.querySelector('.favorites-exercise-card-wrapper'),
@@ -104,7 +104,7 @@ function createMarkup(part, title, target, calories, id) {
                         width="16"
                         height="16">
                         <use
-                          href="/img/symbol-defs.svg#icon-exercises-content-garbage"
+                          href="${svgSprite}#icon-exercises-content-garbage"
                         ></use>
                       </svg>
                     </button>
@@ -115,7 +115,7 @@ function createMarkup(part, title, target, calories, id) {
                         width="16"
                         height="16">
                         <use
-                          href="/img/symbol-defs.svg#icon-scroll-arrow"
+                          href="${svgSprite}#icon-scroll-arrow"
                         ></use>
                       </svg>
                     </button>
@@ -126,7 +126,7 @@ function createMarkup(part, title, target, calories, id) {
                         class="exercise-card-man-icon"
                         width="20"
                         height="20">
-                        <use href="/img/symbol-defs.svg#icon-aside-men"></use>
+                        <use href="${svgSprite}#icon-aside-men"></use>
                       </svg>
                     </div>
                     <h3 class="exercise-card-title">${title}</h3>
