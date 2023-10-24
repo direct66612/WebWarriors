@@ -21,7 +21,7 @@
   height: 4px;
   border-radius: 2px;
   background: #242424;
-  bottom: -4px;
+  bottom: -8px;
 }
 
 .filter-of-body-parts.active::after {
@@ -41,7 +41,7 @@
   height: 4px;
   border-radius: 2px;
   background: #242424;
-  bottom: -4px;
+  bottom: -8px;
   left: 5.5px;
 }
 
@@ -93,7 +93,6 @@
 }
 
 .container-exercises-markup {
-  /* width: 335px; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -157,7 +156,7 @@
 
   .new-exercises-item {
     flex-basis: calc((100% - 30px) / 3);
-    height: 242px;
+    height: 225px;
   }
 }
 
@@ -166,7 +165,7 @@
     margin-bottom: 0;
   }
 
- .filter-items > .exercises-filter-btn {
+  .filter-items > .exercises-filter-btn {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -177,6 +176,6 @@
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px;              
-  }   
+    line-height: 24px;
+  }
 }

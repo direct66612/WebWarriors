@@ -2,12 +2,11 @@ import _, { times } from 'lodash';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { returnPaginationRange } from './utils/utils';
-// import getCategoryData from './api-service/categories-api';
 import getExerciseData from './api-service/exercises-api';
-// import renderCategories from './templates/categories-markup';
 import renderExercises from './templates/exercises-markup';
 import { renderPagination } from './templates/pagination-markup';
 import { onCategoriesPage } from './exercises-category';
+import { loader } from './templates/loader';
 
 const form = document.querySelector('.js-form');
 const title = document.querySelector('.exercises-main-title');
@@ -16,58 +15,15 @@ const list = document.querySelector('.list-for-new-exercises');
 const filterNav = document.querySelector('.js-filter-nav');
 const pagination = document.querySelector('.pagination-nav');
 
-const categoriesSearchParams = {
-  filter: 'Body parts',
-  limit: window.innerWidth < 768 ? 9 : 12,
-};
-
 const exercisesSearchParams = {
   filter: '',
   category: '',
   keyword: '',
-  limit: window.innerWidth < 768 ? 8 : 10,
 };
 
 let page = 1;
-let isCategoriesBlock = true;
 
 list.addEventListener('click', handleToExercises);
-
-// function handleFilter(event) {
-//   const categoryName = event.target.dataset.category;
-
-//   if (
-//     !event.target.classList.contains('nav-link') ||
-//     (isCategoriesBlock && categoriesSearchParams.filter === categoryName)
-//   ) {
-//     return;
-//   }
-
-//   isCategoriesBlock = true;
-//   title.innerHTML = 'Exercises';
-//   pagination.removeEventListener('click', onExercisesPage);
-//   pagination.addEventListener('click', onCategoriesPage);
-//   form.classList.add('is-hidden');
-
-//   categoriesSearchParams.filter = categoryName;
-
-//   document.querySelectorAll('.category-nav a').forEach(link => {
-//     link.classList.remove('active');
-//   });
-
-//   event.target.classList.add('active');
-
-//   getCategoryData(categoriesSearchParams, page)
-//     .then(data => {
-//       list.innerHTML = renderCategories(data.results);
-//       let array = returnPaginationRange(data.totalPages, page);
-//       pagination.innerHTML = renderPagination(page, array);
-//     })
-//     .catch(error => {
-//       console.error(error);
-//       Notify.failure('Oops. Something went wrong. Try reloading the page');
-//     });
-// }
 
 // Навігація по пагінації блок вправ
 export function onExercisesPage(event) {
@@ -81,7 +37,7 @@ export function onExercisesPage(event) {
     return;
   }
 
-  window.scrollTo({ top: list.offsetTop - 200 });
+  window.scrollTo({ top: list.offsetTop - 210 });
   page = Number(page);
   getExerciseData(exercisesSearchParams, page)
     .then(data => {
@@ -101,8 +57,8 @@ export function handleToExercises(event) {
     return;
   }
 
-  isCategoriesBlock = false;
-  // form.reset();
+  list.innerHTML = loader;
+  form.reset();
   pagination.removeEventListener('click', onCategoriesPage);
   pagination.addEventListener('click', onExercisesPage);
   exercisesSearchParams.filter = filterList.dataset.filter;
@@ -113,6 +69,7 @@ export function handleToExercises(event) {
   form.addEventListener('input', handleSearch);
   getExerciseData(exercisesSearchParams, page)
     .then(data => {
+      list.innerHTML = '';
       const categoryName =
         exercisesSearchParams.category[0].toUpperCase() +
         exercisesSearchParams.category.slice(1);

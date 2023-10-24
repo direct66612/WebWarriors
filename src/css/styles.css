@@ -12,6 +12,7 @@
 @import url('./pagination.css');
 @import url('./exercises-header.css');
 @import url('./exercises-workouts.css');
+@import url('./loader.css');
 
 :root {
   font-size: 14px;
