@@ -285,7 +285,6 @@
   .asidebar-container {
     flex-direction: column;
     gap: 32px;
-    justify-content: center;
   }
   .quote-container {
     max-width: 444px;
