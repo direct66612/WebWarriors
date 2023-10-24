@@ -1,241 +1,230 @@
-import axios from 'axios';
+// import axios from 'axios';
 
+// const backdrop = document.querySelector('.backdrop-ex');
+// const closeButton = document.querySelector('.modal-close-btn');
+// const modal = document.querySelector('.modal-ex');
 
-const backdrop = document.querySelector('.backdrop-ex');
-const closeButton = document.querySelector('.modal-close-btn');
-const modal = document.querySelector('.modal-ex');
+// closeButton.addEventListener('click', closeModal);
+// document.addEventListener('keydown', onEscKeyPress);
 
-closeButton.addEventListener('click', closeModal);
-document.addEventListener('keydown', onEscKeyPress);
+// backdrop.addEventListener('click', event => {
+//   if (event.target !== modal && !modal.contains(event.target)) {
+//     closeModal();
+//   }
+// });
 
-backdrop.addEventListener('click', event => {
-  if (event.target !== modal && !modal.contains(event.target)) {
-    closeModal();
-  }
-});
+// function openModal() {
+//   if (modal) {
+//     modal.classList.remove('is-hidden');
+//     backdrop.classList.remove('is-hidden');
+//     document.addEventListener('keydown', onEscKeyPress);
 
+//     modal.addEventListener('click', event => {
+//       event.stopPropagation();
+//     });
 
-function openModal() {
-  if (modal) {
-    modal.classList.remove('is-hidden');
-    backdrop.classList.remove('is-hidden');
-    document.addEventListener('keydown', onEscKeyPress);
+//     backdrop.removeEventListener('click', closeModal);
+//     backdrop.addEventListener('click', closeModal);
 
-    modal.addEventListener('click', event => {
-      event.stopPropagation();
-    });
+//     updateFavoriteButtonStatus(exercise);
+//   }
+// }
 
-    backdrop.removeEventListener('click', closeModal);
-    backdrop.addEventListener('click', closeModal);
+// function closeModal() {
+//   if (modal) {
+//     modal.classList.add('is-hidden');
+//     document.removeEventListener('keydown', onEscKeyPress);
+//     backdrop.removeEventListener('click', closeModal);
+//     backdrop.classList.add('is-hidden');
+//   }
+// }
 
-    updateFavoriteButtonStatus(exercise);
-  }
-}
+// function onEscKeyPress(event) {
+//   if (event.key === 'Escape') {
+//     closeModal();
+//   }
+// }
 
-function closeModal() {
-  if (modal) {
-    modal.classList.add('is-hidden');
-    document.removeEventListener('keydown', onEscKeyPress);
-    backdrop.removeEventListener('click', closeModal);
-    backdrop.classList.add('is-hidden');
-  }
-}
+// backdrop.addEventListener('click', event => {
+//   if (event.target === backdrop) {
+//     closeModal();
+//   }
+// });
 
-function onEscKeyPress(event) {
-  if (event.key === 'Escape') {
-    closeModal();
-  }
-}
+// document.addEventListener('DOMContentLoaded', () => {
+//   const exercisesContainer = document.querySelector('.js-list');
 
-backdrop.addEventListener('click', event => {
-  if (event.target === backdrop) {
-    closeModal();
-  }
-});
+//   exercisesContainer.addEventListener('click', async event => {
+//     const seeExerciseBtn = event.target.closest('.item-button');
+//     if (!seeExerciseBtn) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-  const exercisesContainer = document.querySelector('.js-list');
+//     const exerciseId = seeExerciseBtn.dataset.id;
+//     try {
+//       const fetchedExercise = await fetchExercise(exerciseId);
+//       if (fetchedExercise) {
+//         exercise = fetchedExercise;
 
-  exercisesContainer.addEventListener('click', async event => {
-    const seeExerciseBtn = event.target.closest('.item-button');
-    if (!seeExerciseBtn) return;
+//         updateFavoriteButtonStatus(exercise);
+//         openModal();
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   });
 
-    const exerciseId = seeExerciseBtn.dataset.id;
-    try {
-      const fetchedExercise = await fetchExercise(exerciseId);
-      if (fetchedExercise) {
-        exercise = fetchedExercise;
+// });
 
-        updateFavoriteButtonStatus(exercise);
-        openModal();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  });
+// let currentExerciseId;
 
-});
+// export function setExerciseId(exerciseId) {
+//   currentExerciseId = exerciseId;
+// }
 
-let currentExerciseId;
+// async function fetchExercise(exerciseId) {
+//   const url = `https://your-energy.b.goit.study/api/exercises/${exerciseId}`;
+//   try {
+//     const response = await axios.get(url);
+//     const exercise = response.data;
 
+//     setExerciseId(exerciseId);
 
-export function setExerciseId(exerciseId) {
-  currentExerciseId = exerciseId;
-}
+//     displayExerciseImg(exercise);
+//     displayExerciseTitle(exercise);
+//     displayExerciseDescription(exercise);
+//     displayExerciseTime(exercise);
+//     displayExerciseRating(exercise);
+//     displayExerciseList(exercise);
+//     displayStarRating(exercise);
+//     return exercise;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-async function fetchExercise(exerciseId) {
-  const url = `https://your-energy.b.goit.study/api/exercises/${exerciseId}`;
-  try {
-    const response = await axios.get(url);
-    const exercise = response.data;
+// function displayExerciseImg(exercise) {
+//   const exerciseImg = document.querySelector('.modal-img');
+//   const imgLink = exercise.gifUrl;
 
-    setExerciseId(exerciseId);
+//   if (imgLink !== '') {exerciseImg.src = `${imgLink}`;
+//     }
 
-    displayExerciseImg(exercise);
-    displayExerciseTitle(exercise);
-    displayExerciseDescription(exercise);
-    displayExerciseTime(exercise);
-    displayExerciseRating(exercise);
-    displayExerciseList(exercise);
-    displayStarRating(exercise);
-    return exercise;
-  } catch (error) {
-    console.log(error);
-  }
-}
+// }
 
-function displayExerciseImg(exercise) {
-  const exerciseImg = document.querySelector('.modal-img');
-  const imgLink = exercise.gifUrl;
+// function displayExerciseTitle(exercise) {
+//   const exerciseTitleEl = document.querySelector('.ex-title');
+//   exerciseTitleEl.textContent = exercise.name;
+// }
 
-  if (imgLink !== '') {exerciseImg.src = `${imgLink}`;
-    }
+// function displayExerciseDescription(exercise) {
+//   const exerciseDecriptionEl = document.querySelector('.ex-description');
+//   exerciseDecriptionEl.textContent = exercise.description;
+// }
 
-  
-}
+// function displayExerciseTime(exercise) {
+//   const exerciseBurnedEl = document.querySelector('.ex-time');
+//   exerciseBurnedEl.textContent = exercise.time;
+// }
 
-function displayExerciseTitle(exercise) {
-  const exerciseTitleEl = document.querySelector('.ex-title');
-  exerciseTitleEl.textContent = exercise.name;
-}
+// function displayExerciseRating(exercise) {
+//   const exerciseRatingEl = document.querySelector('.ratinng-value');
+//   exerciseRatingEl.textContent = exercise.rating;
+// }
 
+// function displayExerciseList(exercise) {
+//   const exerciseInfoEl = document.querySelector(
+//     '.info-list'
+//   );
+//   exerciseInfoEl.innerHTML = exercise.informations
+//     .map(
+//       ({ info, name }) => `
+//     <li class="info-item">
+//       <p class="info-item_name">${name}</p>
+//       <p class="info-item_info">${info}</p>
+//     </li>
+//   `
+//     )
+//     .join('');
+// }
 
-function displayExerciseDescription(exercise) {
-  const exerciseDecriptionEl = document.querySelector('.ex-description');
-  exerciseDecriptionEl.textContent = exercise.description;
-}
+// function displayStarRating(exercise) {
+//   const ratingValue = parseFloat(exercise.rating);
+//   const starElements = document.querySelectorAll('.modal-rating-star-icon');
 
-function displayExerciseTime(exercise) {
-  const exerciseBurnedEl = document.querySelector('.ex-time');
-  exerciseBurnedEl.textContent = exercise.time;
-}
+//   for (let i = 0; i < starElements.length; i++) {
+//     if (i < ratingValue) {
+//       starElements[i].classList.add('active');
+//     } else {
+//       starElements[i].classList.remove('active');
+//     }
+//   }
+// }
 
-function displayExerciseRating(exercise) {
-  const exerciseRatingEl = document.querySelector('.ratinng-value');
-  exerciseRatingEl.textContent = exercise.rating;
-}
+// function getFavoriteExercises() {
+//   const favoriteExercises =
+//     JSON.parse(localStorage.getItem('favoriteExercises')) || [];
+//   return favoriteExercises;
+// }
 
+// function saveFavoriteExercises(favoriteExercises) {
+//   localStorage.setItem('favoriteExercises', JSON.stringify(favoriteExercises));
+// }
 
-function displayExerciseList(exercise) {
-  const exerciseInfoEl = document.querySelector(
-    '.info-list'
-  );
-  exerciseInfoEl.innerHTML = exercise.informations
-    .map(
-      ({ info, name }) => `
-    <li class="info-item">
-      <p class="info-item_name">${name}</p>
-      <p class="info-item_info">${info}</p>
-    </li>
-  `
-    )
-    .join('');
-}
+// function removeFromFavorites(exercise) {
+//   const favoriteExercises = getFavoriteExercises();
+//   const updatedFavorites = favoriteExercises.filter(
+//     favoriteExercise => favoriteExercise.id !== exercise._id
+//   );
 
-function displayStarRating(exercise) {
-  const ratingValue = parseFloat(exercise.rating);
-  const starElements = document.querySelectorAll('.modal-rating-star-icon');
+//   saveFavoriteExercises(updatedFavorites);
+// }
 
-  for (let i = 0; i < starElements.length; i++) {
-    if (i < ratingValue) {
-      starElements[i].classList.add('active');
-    } else {
-      starElements[i].classList.remove('active');
-    }
-  }
-}
+// const addToFavoriteButton = document.querySelector('.btn-add-favorite');
 
+// function isExerciseInFavorites(exercise) {
+//   const favoriteExercises = getFavoriteExercises();
+//   const isFavorite = favoriteExercises.some(
+//     favoriteExercise => favoriteExercise.id === exercise._id
+//   );
 
-function getFavoriteExercises() {
-  const favoriteExercises =
-    JSON.parse(localStorage.getItem('favoriteExercises')) || [];
-  return favoriteExercises;
-}
+//   return isFavorite;
+// }
 
-function saveFavoriteExercises(favoriteExercises) {
-  localStorage.setItem('favoriteExercises', JSON.stringify(favoriteExercises));
-}
+// function addToFavorites(exercise) {
+//   const favoriteExercises = getFavoriteExercises();
+//   const { _id, name, bodyPart, rating, burnedCalories, time, description, target, equipment, popularity } = exercise;
 
-function removeFromFavorites(exercise) {
-  const favoriteExercises = getFavoriteExercises();
-  const updatedFavorites = favoriteExercises.filter(
-    favoriteExercise => favoriteExercise.id !== exercise._id
-  );
+//   const newExercise = { id: _id, name, bodyPart, rating, burnedCalories, time, description, target, equipment, popularity };
 
-  saveFavoriteExercises(updatedFavorites);
-}
+//   const isDuplicate = isExerciseInFavorites(exercise);
+//   if (!isDuplicate) {
+//     favoriteExercises.push(newExercise);
+//     addToFavoriteButton.textContent = 'Remove from favorite';
+//   } else {
+//     const updatedFavorites = favoriteExercises.filter(
+//       favoriteExercise => favoriteExercise.id !== _id
+//     );
+//     saveFavoriteExercises(updatedFavorites);
+//     addToFavoriteButton.textContent = 'Add to favorite';
+//   }
+//   saveFavoriteExercises(favoriteExercises);
+// }
 
-const addToFavoriteButton = document.querySelector('.btn-add-favorite');
+// addToFavoriteButton.addEventListener('click', () => {
 
+//   const isFavorite = isExerciseInFavorites(exercise);
 
-function isExerciseInFavorites(exercise) {
-  const favoriteExercises = getFavoriteExercises();
-  const isFavorite = favoriteExercises.some(
-    favoriteExercise => favoriteExercise.id === exercise._id
-  );
+//   if (isFavorite) {
+//     removeFromFavorites(exercise);
+//     addToFavoriteButton.textContent = 'Add to favorite';
+//   } else {
+//     addToFavorites(exercise);
+//     addToFavoriteButton.textContent = 'Remove from favorite';
+//   }
+// });
 
-  return isFavorite;
-}
-
-function addToFavorites(exercise) {
-  const favoriteExercises = getFavoriteExercises();
-  const { _id, name, bodyPart, rating, burnedCalories, time, description, target, equipment, popularity } = exercise;
-
-  const newExercise = { id: _id, name, bodyPart, rating, burnedCalories, time, description, target, equipment, popularity };
-
-  const isDuplicate = isExerciseInFavorites(exercise);
-  if (!isDuplicate) {
-    favoriteExercises.push(newExercise);
-    addToFavoriteButton.textContent = 'Remove from favorite';
-  } else {
-    const updatedFavorites = favoriteExercises.filter(
-      favoriteExercise => favoriteExercise.id !== _id
-    );
-    saveFavoriteExercises(updatedFavorites);
-    addToFavoriteButton.textContent = 'Add to favorite';
-  }
-  saveFavoriteExercises(favoriteExercises);
-}
-
-
-
-addToFavoriteButton.addEventListener('click', () => {
-  
-
-  const isFavorite = isExerciseInFavorites(exercise);
-
-  if (isFavorite) {
-    removeFromFavorites(exercise);
-    addToFavoriteButton.textContent = 'Add to favorite';
-  } else {
-    addToFavorites(exercise);
-    addToFavoriteButton.textContent = 'Remove from favorite';
-  }
-});
-
-function updateFavoriteButtonStatus(exercise) {
-  const isFavorite = isExerciseInFavorites(exercise);
-  addToFavoriteButton.textContent = isFavorite
-    ? 'Remove from favorite'
-    : 'Add to favorite';
-}
+// function updateFavoriteButtonStatus(exercise) {
+//   const isFavorite = isExerciseInFavorites(exercise);
+//   addToFavoriteButton.textContent = isFavorite
+//     ? 'Remove from favorite'
+//     : 'Add to favorite';
+// }
