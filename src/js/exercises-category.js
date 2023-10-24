@@ -48,7 +48,6 @@ function handleFilter(event) {
 
   refs.title.textContent = 'Exercise';
   refs.form.classList.add('is-hidden');
-  // categoriesSearchParams.filter = filter;
   refs.list.dataset.filter = filter;
   getExercisesMarkup(filter, page)
     .then(data => {
@@ -93,10 +92,6 @@ export function onCategoriesPage(event) {
     });
 }
 
-// const bodyPartsItem = refs.bodyPartsItem;
-// const musclesItem = refs.musclesItem;
-// const equipmentItem = refs.equipmentItem;
-
 function removeActiveClass() {
   if (refs.bodyPartsItem.classList.contains('active')) {
     refs.bodyPartsItem.classList.remove('active');
@@ -140,43 +135,6 @@ refs.equipmentItem.addEventListener('click', () => {
   refs.equipmentItem.disabled = true;
 });
 
-// const objBodyParts = refs.bodyPartsItem.addEventListener('click', () => {
-//   getExercisesMarkup(filters.bodyParts)
-//     .then(data => {
-//       addMarkup(data.results);
-//       let array = returnPaginationRange(data.totalPages, page);
-//       refs.pagination.innerHTML = renderPagination(page, array);
-//     })
-//     .catch(err => {
-//       console.log('Error: ', err);
-//     });
-// });
-// const objMuscles = refs.musclesItem.addEventListener('click', () => {
-//   getExercisesMarkup(filters.muscles)
-//     .then(data => {
-//       addMarkup(data.results);
-//       let array = returnPaginationRange(data.totalPages, page);
-//       refs.pagination.innerHTML = renderPagination(page, array);
-//     })
-//     .catch(err => {
-//       console.log('Error: ', err);
-//     });
-// });
-
-// const objEquipment = refs.equipmentItem.addEventListener('click', () => {
-//   getExercisesMarkup(filters.equipment)
-//     .then(data => {
-//       addMarkup(data.results);
-//       let array = returnPaginationRange(data.totalPages, page);
-//       refs.pagination.innerHTML = renderPagination(page, array);
-//     })
-//     .catch(err => {
-//       console.log('Error: ', err);
-//     });
-// });
-
-//console.log(objBodyParts); //ПРОВЕРКА
-
 function addMarkup(data) {
   if (Array.isArray(data)) {
     refs.newList.innerHTML = createMarkup(data);
@@ -185,10 +143,3 @@ function addMarkup(data) {
   }
 }
 
-// getExercisesMarkup();
-// addMarkup();
-// getExercisesMarkup(filters.bodyParts).then(data => {
-//   addMarkup(data.results);
-// });
-
-// refs.newList.addEventListener('click', handleToExercises());
