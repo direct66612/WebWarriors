@@ -27,8 +27,8 @@ body {
 }
 .favorites-exercise-card-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
   gap: 20px;
 }
@@ -228,6 +228,7 @@ body {
 
   .favorites-exercise-card {
     max-width: 405px;
+    width: 405px;
   }
   .exercise-card-bottom {
     gap: 16px;
