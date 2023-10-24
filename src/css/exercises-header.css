@@ -1,0 +1,139 @@
+.exercises-main-title {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  color: #242424;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 135%;
+  letter-spacing: -0.56px;
+  margin-bottom: 20px;
+}
+
+.exercises-main-title > span {
+  color: rgba(36, 36, 36, 0.5);
+  font-size: 20px;
+  line-height: 190%;
+  letter-spacing: -0.4px;
+}
+
+.exercises-header {
+  margin-bottom: 20px;
+}
+
+.exercises-filter-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.exercises-filter-btn {
+  background-color: unset;
+  border: none;
+  color: rgba(36, 36, 36, 0.6);
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0;
+}
+
+/* form */
+.is-hidden {
+  display: none;
+}
+
+.form {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.form > button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  cursor: pointer;
+}
+
+.form .search-icon {
+  margin-top: 6px;
+}
+
+.find-exercise {
+  font-family: 'PP Neue Montreal';
+  color: #242424;
+  font-size: 14px;
+  line-height: 150%;
+  border-radius: 30px;
+  border: 1px solid #242424;
+  outline: none;
+  padding: 12.5px 50px 12.5px 14px;
+  width: 100%;
+}
+
+.find-exercise::placeholder {
+  font-family: 'PP Neue Montreal';
+  color: #242424;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.submit-icon {
+  padding-top: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .exercises-main-title {
+    grid-area: one;
+    display: block;
+    font-size: 44px;
+    line-height: 110%;
+    letter-spacing: -0.88px;
+  }
+
+  .exercises-main-title > span {
+    color: rgba(36, 36, 36, 0.5);
+    font-size: 24px;
+    line-height: 133%;
+    letter-spacing: -0.4px;
+  }
+
+  .exercises-header {
+    margin-bottom: 32px;
+  }
+
+  .exercises-header > .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form {
+    width: 271px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .exercises-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .exercises-header > .wrapper {
+    flex-direction: row;
+  }
+
+  .exercises-main-title {
+    margin-bottom: 0;
+  }
+}

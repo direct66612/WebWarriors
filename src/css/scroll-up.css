@@ -1,0 +1,29 @@
+.top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    width: 40px;
+    height: 40px;
+    background-color: #242424;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.6s ease;
+}
+
+.top-button:hover,
+.top-button:focus {
+    width: 100px;
+    height: 100px;
+}
+
+.top-button:hover .top-icon,
+.top-button:focus .top-icon {
+    width: 33px;
+    height: 33px;
+}
+
+.top-icon {
+    fill: #F4F4F4;
+}

@@ -1,5 +1,4 @@
 .asidebar-container {
-  margin: 80px 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -11,13 +10,14 @@
   display: flex;
   border-radius: 20px;
   background-color: #242424;
-  max-width: 280px;
+  max-width: 335px;
+  width: 100%;
   padding: 20px;
   gap: 18px;
 }
 
 .quote {
-  max-width: 193px;
+  width: 193px;
 }
 .quote-icon-men {
   width: 34px;
@@ -36,10 +36,10 @@
 
 .quote-title {
   color: #f4f4f4;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1;
-  margin-right: 50px;
+  margin-right: 80px;
 }
 .quote-icon-marks {
   fill: #ffffff;
@@ -55,12 +55,10 @@
   line-height: 1.29;
   font-size: 14px;
 }
-.asidebar-img-container {
-  background-color: #ffffff;
-}
+
 .asidebar-img {
-  width: 280px;
-  background-color: #ffffff;
+  max-width: 335px;
+  width: 100%;
   border-radius: 20px;
   object-fit: cover;
   overflow: hidden;
@@ -71,7 +69,9 @@
   background-color: #ffffff;
   display: flex;
   gap: 18px;
-  max-width: 280px;
+  max-width: 335px;
+  height: 203px;
+  width: 100%;
 }
 .icon-barbell {
   border-radius: 50%;
@@ -93,7 +93,6 @@
 .daily-sport-subtitle {
   color: rgba(36, 36, 36, 0.6);
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 1.29;
   margin-bottom: 16px;
@@ -102,28 +101,97 @@
   width: 190px;
   line-height: 1.29;
 }
+
+/* FAVORITES */
+.favorites-asidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.favorites-quote-container {
+  display: flex;
+  border-radius: 20px;
+  background-color: #242424;
+  max-width: 335px;
+  width: 100%;
+  padding: 20px;
+  gap: 18px;
+}
+.favorites-quote {
+  width: 193px;
+}
+.favorites-quote-title {
+  color: #f4f4f4;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  margin-right: 80px;
+}
+.favorites-quote-text {
+  color: rgba(244, 244, 244, 0.6);
+  line-height: 1.29;
+  margin-top: 6px;
+}
+.favorites-quote-author {
+  color: #f4f4f4;
+  line-height: 1.29;
+  font-size: 14px;
+  display: none;
+}
+.favorites-daily-sport {
+  padding: 20px 141px 20px 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  max-width: 335px;
+  height: 119px;
+  width: 100%;
+}
+.favorites-icon-barbell {
+  fill: #242424;
+}
+
+.favorites-dailysport-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  margin-top: 15px;
+  margin-bottom: 6px;
+}
+.favorites-dailysport-subtitle {
+  color: rgba(36, 36, 36, 0.6);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+}
+
+.favorites-asidebar-img {
+  max-width: 335px;
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
 /* MEDIA */
 @media screen and (max-width: 374px) {
 }
 @media screen and (min-width: 375px) {
-  .quote-container {
-    max-width: 335px;
-  }
   .quote {
-    max-width: 243px;
+    width: 243px;
   }
-  .quote-title {
-    font-size: 20px;
-    margin-right: 80px;
-  }
-  .asidebar-img {
-    width: 335px;
-  }
-  .daily-sport-container {
-    max-width: 335px;
-  }
+
   .daily-sport-text {
     width: 245px;
+  }
+
+  .favorites-quote {
+    width: 243px;
+  }
+
+  .favorites-daily-sport {
+    padding-right: 196px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -140,7 +208,7 @@
     gap: 16px;
   }
   .quote {
-    max-width: 270px;
+    width: 270px;
   }
   .quote-title {
     font-size: 24px;
@@ -155,11 +223,13 @@
     font-size: 16px;
   }
   .asidebar-img {
-    width: 288px;
+    max-width: 288px;
   }
+
   .daily-sport-container {
     padding: 40px;
     max-width: 400px;
+    height: 249px;
     gap: 16px;
   }
   .daily-sport-title {
@@ -170,31 +240,90 @@
   .daily-sport-text {
     width: 270px;
   }
+  .favorites-asidebar-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+  .favorites-quote-container {
+    max-width: 704px;
+    height: auto;
+    padding: 40px;
+    gap: 16px;
+  }
+  .favorites-quote {
+    width: 574px;
+  }
+  .favorites-quote-title {
+    font-size: 24px;
+    line-height: 1.33;
+    margin-right: 378px;
+  }
+  .favorites-quote-text {
+    margin-bottom: 18px;
+  }
+  .favorites-quote-author {
+    line-height: 1.5;
+    font-size: 16px;
+    display: block;
+  }
+  .favorites-asidebar-img {
+    max-width: 344px;
+  }
+  .favorites-daily-sport {
+    max-width: 344px;
+    height: 141px;
+    padding: 25px 200px 25px 25px;
+  }
+  .favorites-dailysport-title {
+    font-size: 24px;
+    line-height: 1.33;
+  }
 }
 @media screen and (min-width: 1440px) {
   .asidebar-container {
     flex-direction: column;
     gap: 32px;
-    justify-content: center;
   }
   .quote-container {
     max-width: 444px;
     height: auto;
   }
   .quote {
-    max-width: 314px;
+    width: 314px;
   }
   .quote-title {
     margin-right: 118px;
   }
   .asidebar-img {
-    width: 444px;
+    max-width: 444px;
   }
   .daily-sport-container {
     max-width: 444px;
+    height: 315px;
   }
   .daily-sport-text {
     width: 314px;
+  }
+  .favorites-asidebar-container {
+    max-width: 494px;
+  }
+  .favorites-quote-container {
+    max-width: 494px;
+  }
+  .favorites-quote {
+    width: 364px;
+  }
+  .favorites-quote-title {
+    margin-right: 168px;
+  }
+  .favorites-asidebar-img {
+    max-width: 239px;
+  }
+  .favorites-daily-sport {
+    max-width: 239px;
+    padding-right: 95px;
   }
 }
 @media screen and (max-width: 1439px) {

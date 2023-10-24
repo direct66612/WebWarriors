@@ -4,20 +4,16 @@ footer {
   max-width: 100%;
   height: auto;
   padding: 20px 0;
-  position: absolute;
-  bottom: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
-.logo {
+.footer-container-ftr {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.footer-logo {
   font-size: 24px;
-  padding: 40px 223px 20px 20px;
-}
-
-.style-footer {
-  display: flex;
-  justify-content: center;
+  padding-bottom: 20px;
 }
 
 .footer-logo-link {
@@ -75,6 +71,10 @@ footer {
   gap: 8px;
 }
 
+.footer-form {
+  padding-bottom: 20px;
+}
+
 .footer-text {
   color: #F4F4F4;
   font-family: Neue Montreal;
@@ -103,12 +103,11 @@ footer {
 
 .subscribe-text {
   color: #F4F4F4;
-  font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.28;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 #subscription-form {
@@ -118,8 +117,8 @@ footer {
 
 #subscribe-button {
   display: flex;
-  width: 335px;
-  padding: 12px 152px;
+  max-width: 335px;
+  padding: 12px 0px;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -127,21 +126,20 @@ footer {
   background: #F4F4F4;
   border: none;
   cursor: pointer;
-  margin-bottom: 100px;
+
 }
 
 #email-input {
-  /* max-width: 100%; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 12px 14px 12px 14px;
+  padding: 12px 14px;
   align-items: center;
   border-radius: 30px;
   border: 1px solid #F4F4F4;
   background-color: #242424;
   color: rgba(244, 244, 244, 0.60);
-  width: 335px;
+  max-width: 335px;
 }
 
 .copyright {
@@ -151,7 +149,6 @@ footer {
 
 .copyright-text {
   color: #C6CDD1;
-  font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -164,7 +161,6 @@ footer {
 .copyright-link {
   color: #C6CDD1;
   text-align: right;
-  font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -182,19 +178,22 @@ footer {
 
 .copyright-ftr {
   color: #C6CDD1;
-  font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.28;
   letter-spacing: -0.28px;
-  margin: 0 20px 20px 270px;
-  margin-top: -1.25em;
 }
 
 .copyright-footer-text,
 .copyright-ftr {
   display: flex;
+}
+
+.copyright-footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*! Медіа 768*/
@@ -212,13 +211,22 @@ footer {
     height: auto;
   }
 
-  .logo {
-    padding: 64px 604px 32px 32px;
+  .footer-container-ftr {
+    display: grid;
+    grid-template-columns: 178px 438px;
+    grid-template-areas:
+      'first second'
+      '. third';
+    margin-bottom: 100px;
+    justify-content: space-between;
+  }
+
+  .footer-logo-social {
+    grid-area: first;
   }
 
   .footer-form {
-    padding: 64px 32px 32px 240px;
-    margin-top: -200px;
+    grid-area: second;
   }
 
   .footer-text {
@@ -226,7 +234,6 @@ footer {
     font-size: 56px;
     line-height: 1.07;
     letter-spacing: -1.12px;
-    /* padding: 64px 32px 32px 288px; */
   }
 
   .italic-word {
@@ -238,26 +245,21 @@ footer {
   }
 
   .subscribe-form {
+    grid-area: third;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
   }
 
   .subscribe-text {
     color: #F4F4F4;
     font-size: 18px;
     line-height: 1.33;
-    margin-bottom: 20px;
-    text-align: right;
-    padding-right: 163px;
   }
 
   #subscription-form {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     gap: 20px;
-    padding-right: 130px;
   }
 
   #email-input {
@@ -284,6 +286,7 @@ footer {
     color: #242424;
     font-size: 16px;
     line-height: 1.5;
+
   }
 
   .copyright {
@@ -296,7 +299,7 @@ footer {
     line-height: 1.28;
     letter-spacing: -0.28px;
     margin: 0;
-    padding-right: 78px;
+    margin-right: 85px;
   }
 
   .copyright-footer-text {
@@ -305,7 +308,6 @@ footer {
     font-size: 14px;
     line-height: 1.28;
     letter-spacing: -0.28px;
-    padding-right: 208px;
   }
 
   .copyright-link {
@@ -323,6 +325,7 @@ footer {
     letter-spacing: -0.28px;
     opacity: 0.9;
     margin: 0;
+    margin-left: 208px;
   }
 }
 
@@ -336,8 +339,28 @@ footer {
     flex-direction: column;
   }
 
+  .footer>.container {
+    padding-top: 64px;
+    padding-bottom: 32px;
+  }
+
+  .footer-container-ftr {
+    grid-template-columns: 178px 554px 350px;
+    grid-template-areas: unset;
+  }
+
+  .footer-logo-social,
+  .footer-form,
+  .subscribe-form {
+    grid-area: unset;
+  }
+
   .style-footer {
     justify-content: left;
+  }
+
+  .footer-social-section {
+    padding-bottom: 0;
   }
 
   .footer-social-list {
@@ -346,16 +369,16 @@ footer {
     gap: 12px;
   }
 
+  .footer-form {
+    padding-bottom: 0;
+  }
+
   .footer-text {
     width: 554px;
   }
 
   .subscribe-form {
     justify-content: space-between;
-  }
-
-  .subscribe-text {
-    padding-right: 65px;
   }
 
   #subscription-form {
@@ -372,14 +395,12 @@ footer {
     background: #F4F4F4;
   }
 
-  .copyright {}
-
   .copyright-text {
-    padding-right: 136px;
+    margin-right: 152px;
     margin-bottom: 0;
   }
 
-  .copyright-footer-text {
-    padding-right: 515px;
+  .copyright-ftr {
+    margin-left: 515px;
   }
 }
