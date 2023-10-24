@@ -1,7 +1,6 @@
 import './js/header';
 import './js/exercises-aside';
 import './js/exercises-main';
-import './js/favorites';
 import './js/footer';
 import './js/scroll-up';
 import './js/loader';
@@ -11,6 +10,6 @@ import './js/api-service/exercises-api';
 import './js/api-service/categories-api';
 import './js/templates/exercises-markup';
 import './js/exercises';
-import './js/exercises-category.js'
+import './js/exercises-category.js';
 import './js/templates/exercises-category-markup.js';
 import './js/modal-ex';
