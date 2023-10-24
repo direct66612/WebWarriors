@@ -1,19 +1,17 @@
 //получения ссылок
-import axios from "axios";
+import axios from 'axios';
 
-export async function getExercisesMarkup(value) {
+export async function getExercisesMarkup(value, page) {
   const mobileBreakpoint = 768;
-    const params = new URLSearchParams({
-       filter: value,
-       page: 1,
-       limit: window.innerWidth < mobileBreakpoint ? 9 : 12,
-});
+  const params = new URLSearchParams({
+    filter: value,
+    page: page,
+    limit: window.innerWidth < mobileBreakpoint ? 9 : 12,
+  });
 
-  return await axios.get(`/filters`, {params} )
-   .then((resp) => {
+  return await axios.get(`/filters`, { params }).then(resp => {
     return resp.data;
-});
+  });
 }
- 
-//console.log(getExercisesMarkup("Body parts")); 
- 
+
+//console.log(getExercisesMarkup("Body parts"));
