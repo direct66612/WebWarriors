@@ -27,7 +27,7 @@ function onStarClick(ev) {
   const ratingValue = ev.currentTarget.firstElementChild;
   ratingValue.textContent = ev.target.value + '.0';
   ev.target.labels[0].children[0].classList.add('animate');
-  startColorReset(ratingRefs.stars);
+  starsColorReset(ratingRefs.stars);
   changeStarColor(ev.target.value, ratingRefs.stars);
   const timerID = setTimeout(() => {
     ev.target.labels[0].children[0].classList.remove('animate');
@@ -39,7 +39,7 @@ function setDefaultColorInput(el) {
   el.style.borderColor = '#f4f4f4';
 }
 
-function startColorReset(elements) {
+function starsColorReset(elements) {
   for (let i = 0; i < 5; i += 1) {
     elements[i].classList.remove('star-active');
   }
@@ -119,8 +119,9 @@ function rateFormSubmit(ev) {
   servicePatchRate(ev.currentTarget.dataset.id, rateObj);
   setDefaultColorInput(ev.currentTarget.elements.userEmail);
   setDefaultColorInput(ev.currentTarget.elements.comment);
-  startColorReset(ratingRefs.stars);
+  starsColorReset(ratingRefs.stars);
   ev.currentTarget.reset();
+  ratingModalClose();
 }
 
 function ratingModalOpen(ev) {
@@ -131,5 +132,6 @@ function ratingModalOpen(ev) {
 
 function ratingModalClose() {
   ratingRefs.ratingForm.classList.add('is-hidden');
+  // !Тут відкривається попередня модалка...
 }
 export const openRatingModal = ratingModalOpen;
