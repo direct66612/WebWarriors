@@ -133,7 +133,6 @@ ratingRefs.openModalBtn.addEventListener('click',ratingModalOpen)
 function ratingModalOpen(ev) {
   // ratingRefs.ratingForm.dataset.id = ev.currentTarget.dataset.id;
   ratingRefs.ratingForm.classList.remove('is-hidden');
-  console.log(currentExerciseId)
   ratingRefs.exerciseModal.classList.add('is-hidden');
   // !Тут Дмитро закриває свою модалку ()=>{ виклик моєї функції, +закриття його модалки}
 }
