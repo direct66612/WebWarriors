@@ -49,6 +49,6 @@ function createMarkupQuote(data) {
   <p class="quote-author">${data.author}</p></div>`;
 }
 function createMarkupFavQuote(data) {
-  return `<div class="quote-text-container"><p class="quote-text">${data.quote}</p>
+  return `<div class="quote-text-container"><p class="favorites-quote-text">${data.quote}</p>
   <p class="favorites-quote-author">${data.author}</p></div>`;
 }
