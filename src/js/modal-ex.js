@@ -54,13 +54,13 @@ backdrop.addEventListener('click', event => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const exercisesContainer = document.querySelector('.js-list');
+  const exercisesContainer = document.querySelector('.list-for-new-exercises');
 
   exercisesContainer.addEventListener('click', async event => {
     const seeExerciseBtn = event.target.closest('.item-button');
     if (!seeExerciseBtn) return;
 
-    const exerciseId = seeExerciseBtn.dataset.id;
+    let exerciseId = seeExerciseBtn.dataset.id;
     try {
       const fetchedExercise = await fetchExercise(exerciseId);
       if (fetchedExercise) {
@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let currentExerciseId;
+let exercise;
 
 
 export function setExerciseId(exerciseId) {
@@ -87,14 +88,13 @@ async function fetchExercise(exerciseId) {
   const url = `https://your-energy.b.goit.study/api/exercises/${exerciseId}`;
   try {
     const response = await axios.get(url);
-    const exercise = response.data;
+    exercise = [response.data];
 
     setExerciseId(exerciseId);
 
     displayExerciseImg(exercise);
     displayExerciseTitle(exercise);
     displayExerciseDescription(exercise);
-    displayExerciseTime(exercise);
     displayExerciseRating(exercise);
     displayExerciseList(exercise);
     displayStarRating(exercise);
@@ -106,10 +106,10 @@ async function fetchExercise(exerciseId) {
 
 function displayExerciseImg(exercise) {
   const exerciseImg = document.querySelector('.modal-img');
-  const imgLink = exercise.gifUrl;
-
-  if (imgLink !== '') {exerciseImg.src = `${imgLink}`;
-    }
+  exerciseImg.src= exercise[0].gifUrl;
+  // console.log(exercise[0].gifUrl);
+  // if (imgLink !== '') {exerciseImg.src = `${imgLink}`;
+  //   }
 
   
 }
@@ -125,30 +125,30 @@ function displayExerciseDescription(exercise) {
   exerciseDecriptionEl.textContent = exercise.description;
 }
 
-function displayExerciseTime(exercise) {
-  const exerciseBurnedEl = document.querySelector('.ex-time');
-  exerciseBurnedEl.textContent = exercise.time;
-}
+
 
 function displayExerciseRating(exercise) {
   const exerciseRatingEl = document.querySelector('.ratinng-value');
-  exerciseRatingEl.textContent = exercise.rating;
+  exerciseRatingEl.textContent = exercise[0].rating;
+  console.log(exercise);
 }
 
 
 function displayExerciseList(exercise) {
-  const exerciseInfoEl = document.querySelector(
-    '.info-list'
-  );
-  exerciseInfoEl.innerHTML = exercise.informations
-    .map(
-      ({ info, name }) => `
+  const exerciseInfoEl = document.querySelector('.info-list');
+  exerciseInfoEl.innerHTML = exercise.map(item => {
+      const { bodyPart, burnedCalories, target, equipment, popularity, time } =
+        item;
+      return `
     <li class="info-item">
-      <p class="info-item_name">${name}</p>
-      <p class="info-item_info">${info}</p>
+      <p class="info-item_name">Target ${target}</p>
+      <p class="info-item_info">Body Part ${bodyPart}</p>
+      <p class="info-item_info">Equipment ${equipment}</p>
+      <p class="info-item_info">Popular ${popularity}</p>
+      <p class="info-item_info">Burned Calories ${burnedCalories}/${time}</p>
     </li>
   `
-    )
+    })
     .join('');
 }
 
@@ -239,3 +239,5 @@ function updateFavoriteButtonStatus(exercise) {
     ? 'Remove from favorite'
     : 'Add to favorite';
 }
+
+export { currentExerciseId };
