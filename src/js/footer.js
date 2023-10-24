@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('logo-link').addEventListener('click', function () {
-    window.location.href = '../index.html';
+    window.location.href = './index.html';
   });
 
   // код для обробки форми підписки
