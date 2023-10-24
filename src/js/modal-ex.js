@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-
 const backdrop = document.querySelector('.backdrop-ex');
 const closeButton = document.querySelector('.modal-close-btn');
 const modal = document.querySelector('.modal-ex');
+const KEY_LS = 'favoriteExercises';
 
 closeButton.addEventListener('click', closeModal);
 document.addEventListener('keydown', onEscKeyPress);
@@ -13,7 +13,6 @@ backdrop.addEventListener('click', event => {
     closeModal();
   }
 });
-
 
 function openModal() {
   if (modal) {
@@ -73,12 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(error);
     }
   });
-
 });
 
 let currentExerciseId;
 let exercise;
-
 
 export function setExerciseId(exerciseId) {
   currentExerciseId = exerciseId;
@@ -106,12 +103,10 @@ async function fetchExercise(exerciseId) {
 
 function displayExerciseImg(exercise) {
   const exerciseImg = document.querySelector('.modal-img');
-  exerciseImg.src= exercise[0].gifUrl;
+  exerciseImg.src = exercise[0].gifUrl;
   // console.log(exercise[0].gifUrl);
   // if (imgLink !== '') {exerciseImg.src = `${imgLink}`;
   //   }
-
-  
 }
 
 function displayExerciseTitle(exercise) {
@@ -119,24 +114,20 @@ function displayExerciseTitle(exercise) {
   exerciseTitleEl.textContent = exercise.name;
 }
 
-
 function displayExerciseDescription(exercise) {
   const exerciseDecriptionEl = document.querySelector('.ex-description');
   exerciseDecriptionEl.textContent = exercise.description;
 }
 
-
-
 function displayExerciseRating(exercise) {
   const exerciseRatingEl = document.querySelector('.ratinng-value');
   exerciseRatingEl.textContent = exercise[0].rating;
-  console.log(exercise);
 }
-
 
 function displayExerciseList(exercise) {
   const exerciseInfoEl = document.querySelector('.info-list');
-  exerciseInfoEl.innerHTML = exercise.map(item => {
+  exerciseInfoEl.innerHTML = exercise
+    .map(item => {
       const { bodyPart, burnedCalories, target, equipment, popularity, time } =
         item;
       return `
@@ -147,7 +138,7 @@ function displayExerciseList(exercise) {
       <p class="info-item_info">Popular ${popularity}</p>
       <p class="info-item_info">Burned Calories ${burnedCalories}/${time}</p>
     </li>
-  `
+  `;
     })
     .join('');
 }
@@ -165,76 +156,61 @@ function displayStarRating(exercise) {
   }
 }
 
-
 function getFavoriteExercises() {
-  const favoriteExercises =
-    JSON.parse(localStorage.getItem('favoriteExercises')) || [];
-  return favoriteExercises;
+  return JSON.parse(localStorage.getItem('favoriteExercises')) || [];
 }
 
 function saveFavoriteExercises(favoriteExercises) {
-  localStorage.setItem('favoriteExercises', JSON.stringify(favoriteExercises));
+  localStorage.setItem(KEY_LS, JSON.stringify(favoriteExercises));
 }
 
-function removeFromFavorites(exercise) {
+function isExerciseInFavorites(exerciseId) {
   const favoriteExercises = getFavoriteExercises();
-  const updatedFavorites = favoriteExercises.filter(
-    favoriteExercise => favoriteExercise.id !== exercise._id
-  );
 
-  saveFavoriteExercises(updatedFavorites);
-}
-
-const addToFavoriteButton = document.querySelector('.btn-add-favorite');
-
-
-function isExerciseInFavorites(exercise) {
-  const favoriteExercises = getFavoriteExercises();
   const isFavorite = favoriteExercises.some(
-    favoriteExercise => favoriteExercise.id === exercise._id
+    favoriteExercise => favoriteExercise === exerciseId
   );
 
   return isFavorite;
 }
 
-function addToFavorites(exercise) {
+// Функція додавання вправи
+function addToFavorites(exerciseId) {
   const favoriteExercises = getFavoriteExercises();
-  const { _id, name, bodyPart, rating, burnedCalories, time, description, target, equipment, popularity } = exercise;
-
-  const newExercise = { id: _id, name, bodyPart, rating, burnedCalories, time, description, target, equipment, popularity };
-
-  const isDuplicate = isExerciseInFavorites(exercise);
-  if (!isDuplicate) {
-    favoriteExercises.push(newExercise);
-    addToFavoriteButton.textContent = 'Remove from favorite';
-  } else {
-    const updatedFavorites = favoriteExercises.filter(
-      favoriteExercise => favoriteExercise.id !== _id
-    );
-    saveFavoriteExercises(updatedFavorites);
-    addToFavoriteButton.textContent = 'Add to favorite';
-  }
+  favoriteExercises.push(exerciseId);
   saveFavoriteExercises(favoriteExercises);
 }
 
+// Функція видалення вправи
+function removeFromFavorites(exerciseId) {
+  const favoriteExercises = getFavoriteExercises();
 
+  const updatedFavoriteExercises = favoriteExercises.filter(
+    favoriteExercise => favoriteExercise !== exerciseId
+  );
+
+  saveFavoriteExercises(updatedFavoriteExercises);
+}
+
+const addToFavoriteButton = document.querySelector('.btn-add-favorite');
 
 addToFavoriteButton.addEventListener('click', () => {
-  
-
-  const isFavorite = isExerciseInFavorites(exercise);
+  const exerciseId = exercise[0]._id;
+  const isFavorite = isExerciseInFavorites(exerciseId);
 
   if (isFavorite) {
-    removeFromFavorites(exercise);
+    removeFromFavorites(exerciseId);
     addToFavoriteButton.textContent = 'Add to favorite';
   } else {
-    addToFavorites(exercise);
+    addToFavorites(exerciseId);
     addToFavoriteButton.textContent = 'Remove from favorite';
   }
 });
 
-function updateFavoriteButtonStatus(exercise) {
-  const isFavorite = isExerciseInFavorites(exercise);
+let exerciseId = exercise[0]._id;
+
+function updateFavoriteButtonStatus(exerciseId) {
+  const isFavorite = isExerciseInFavorites(exerciseId);
   addToFavoriteButton.textContent = isFavorite
     ? 'Remove from favorite'
     : 'Add to favorite';
