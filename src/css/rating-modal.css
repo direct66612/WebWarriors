@@ -1,37 +1,3 @@
-/* @font-face {
-  font-family: 'Neue Montreal';
-  src: url('../fonts/NeueMontreal-Regular.otf');
-  font-style: normal;
-  font-weight: 400;
-}
-
-
-@font-face {
-  font-family: 'Neue Montreal';
-  src: url('../fonts/NeueMontreal-Italic.otf');
-  font-style: italic;
-  font-weight: 400;
-}
-
-body {
-  font-family: 'Neue Montreal', sans-serif;
-} */
-
-.backdrop {
-  background-color: rgb(4, 4, 4, 0.4);
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .close-rating-btn {
   background-color: transparent;
   border: none;
