@@ -1,9 +1,8 @@
 import axios from 'axios';
+import notiflix from 'notiflix';
 
 const refs = {
   notFoundText: document.querySelector('.favorites-not-found-text'),
-  removeBtn: document.querySelector('.exercise-card-remove-btn'),
-  startBtn: document.querySelector('.exercise-card-start-btn'),
   exercisesWrapper: document.querySelector('.favorites-exercise-card-wrapper'),
 };
 
@@ -21,28 +20,55 @@ const arr = [
 ];
 
 renderMarkup();
-
+// console.log(typeof refs.exercisesWrapper.innerHTML);
+// if (refs.exercisesWrapper.innerHTML === '') {
+//   refs.notFoundText.style.display = 'block';
+// }
 function addListener() {
-  refs.removeBtn.addEventListener('click', () => {
-    removeValueFromArray(arr, '64f389465ae26083f39b17b7');
-    refs.exercisesWrapper.innerHTML = '';
-    renderMarkup();
-  });
+  document
+    .querySelector('.favorites-exercise-card')
+    .addEventListener('click', () => {
+      console.log();
+      if (
+        event.target.classList.value === 'exercise-card-remove-btn' ||
+        event.target.classList.value === 'exercise-card-remove-icon' ||
+        event.target.classList.value === ''
+      ) {
+        removeValueFromArray(arr, event.currentTarget.dataset.id);
+        refs.exercisesWrapper.innerHTML = '';
+        renderMarkup();
+        notiflix.Notify.warning('You have just deleted an exercise', {
+          fontSize: '24px',
+          width: '600px',
+          position: 'center-top',
+          distance: '165px',
+          borderRadius: '10px',
+        });
+      }
+      // else if (refs.exercisesWrapper.innerHTML === '') {
+      //   refs.notFoundText.style.display = 'block';
+      // }
+      else {
+        return;
+      }
+    });
 }
 
 function renderMarkup() {
   getFavoriteExerciseData(arr).then(response => {
     response.map(({ data }) => {
-      const { bodyPart, name, target, burnedCalories } = data;
+      const { bodyPart, name, target, burnedCalories, _id } = data;
       refs.exercisesWrapper.insertAdjacentHTML(
         'afterbegin',
         createMarkup(
           firstLetterUpperCase(bodyPart),
           firstLetterUpperCase(name),
           firstLetterUpperCase(target),
-          burnedCalories
+          burnedCalories,
+          _id
         )
       );
+      addListener();
     });
   });
 }
@@ -68,8 +94,8 @@ function firstLetterUpperCase(word) {
   return result;
 }
 
-function createMarkup(part, title, target, calories) {
-  return `<div class="favorites-exercise-card">
+function createMarkup(part, title, target, calories, id) {
+  return `<div class="favorites-exercise-card" data-id="${id}">
                   <div class="exercise-card-top">
                     <p class="exercise-card-top-text">WORKOUT</p>
                     <button class="exercise-card-remove-btn">
@@ -117,8 +143,3 @@ function removeValueFromArray(array, value) {
     array.splice(index, 1);
   }
 }
-console.log(arr);
-
-removeValueFromArray(arr, '64f389465ae26083f39b17b7');
-
-console.log(arr);
