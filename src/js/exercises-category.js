@@ -6,6 +6,7 @@ import { createMarkup } from './templates/exercises-category-markup';
 import { returnPaginationRange } from './utils/utils';
 import { renderPagination } from './templates/pagination-markup';
 import { onExercisesPage } from './exercises';
+import { loader } from './templates/loader';
 
 window.addEventListener('load', () => {
   refs.bodyPartsItem.style.color = 'black';
@@ -26,8 +27,10 @@ let page = 1;
 
 refs.list.addEventListener('click', handleFilter);
 
+refs.newList.innerHTML = loader;
 getExercisesMarkup(refs.list.dataset.filter, page)
   .then(data => {
+    refs.newList.innerHTML = '';
     addMarkup(data.results);
     let array = returnPaginationRange(data.totalPages, page);
     refs.pagination.innerHTML = renderPagination(page, array);
@@ -55,6 +58,7 @@ function handleFilter(event) {
       let array = returnPaginationRange(data.totalPages, page);
       refs.pagination.innerHTML = renderPagination(page, array);
 
+      refs.pagination.removeEventListener('click', onExercisesPage);
       refs.pagination.addEventListener('click', onCategoriesPage);
     })
     .catch(err => {
@@ -75,16 +79,13 @@ export function onCategoriesPage(event) {
     return;
   }
 
-  window.scrollTo({ top: refs.newList.offsetTop - 120 });
+  window.scrollTo({ top: refs.title.offsetTop - 60 });
   page = Number(page);
   getExercisesMarkup(refs.list.dataset.filter, page)
     .then(data => {
       addMarkup(data.results);
       let array = returnPaginationRange(data.totalPages, page);
       refs.pagination.innerHTML = renderPagination(page, array);
-
-      refs.pagination.removeEventListener('click', onExercisesPage);
-      refs.pagination.addEventListener('click', onCategoriesPage);
     })
     .catch(err => {
       console.error('Error: ', err);
@@ -142,4 +143,3 @@ function addMarkup(data) {
     console.error('Data is not an array:', data);
   }
 }
-
