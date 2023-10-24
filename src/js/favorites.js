@@ -4,9 +4,6 @@ const refs = {
   startBtn: document.querySelector('.exercise-card-start-btn'),
   exercisesWrapper: document.querySelector('.favorites-exercise-card-wrapper'),
 };
-
-console.log(refs.exercisesWrapper);
-
 const arr = [
   '64f389465ae26083f39b17a2',
   '64f389465ae26083f39b17df',
