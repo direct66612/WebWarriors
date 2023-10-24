@@ -1,0 +1,49 @@
+<header class="exercises-header">
+  <h2 class="exercises-main-title">Exercises</h2>
+
+  <div class="wrapper">
+    <form class="form js-form is-hidden">
+      <input
+        type="text"
+        class="find-exercise js-search"
+        placeholder="Search"
+        name="input"
+      />
+      <button type="button" name="button" class="submit-btn">
+        <svg class="submit-icon" width="26" height="26">
+          <use href="../img/symbol-defs.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+
+    <ul
+      class="exercises-filter-list js-categories-list"
+      data-filter="Body parts"
+    >
+      <li class="filter-items">
+        <button
+          class="exercises-filter-btn filter-of-body-parts active"
+          data-category="Body parts"
+        >
+          Body parts
+        </button>
+      </li>
+      <li class="filter-items">
+        <button
+          class="exercises-filter-btn filter-of-muscles"
+          data-category="Muscles"
+        >
+          Muscles
+        </button>
+      </li>
+      <li class="filter-items">
+        <button
+          class="exercises-filter-btn filter-of-equipment"
+          data-category="Equipment"
+        >
+          Equipment
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>

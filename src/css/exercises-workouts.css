@@ -1,0 +1,117 @@
+.item {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 27px;
+}
+
+.item-rating {
+  margin-right: 4px;
+  fill: #eea10c;
+}
+
+.rating-star {
+  fill: #eea10c;
+  padding-bottom: 3px;
+}
+
+.item-workout {
+  border: 1px solid #242424;
+  border-radius: 15px;
+  padding: 5px 7.5px;
+  margin-right: 16px;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+.item-body {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.item-title {
+  margin-left: 16px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 100%;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.item-footer {
+  display: flex;
+  gap: 10px;
+}
+
+.item-footer > p {
+  color: rgba(36, 36, 36, 0.4);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+  white-space: nowrap;
+  letter-spacing: -0.3;
+}
+
+.item-footer > p:last-child {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.item-footer span {
+  color: #242424;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.item-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.item-button > svg {
+  transform: rotate(90deg);
+  color: #242424;
+}
+
+.item-button use {
+  color: #242424;
+}
+
+.clear-icon {
+  margin-right: 7px;
+}
+
+@media screen and (min-width: 768px) {
+  .item {
+    width: calc((100% - 16px) / 2);
+  }
+
+  .item:not(:last-child) {
+    margin-bottom: 0;
+  }
+}

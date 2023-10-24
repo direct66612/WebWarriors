@@ -1,179 +1,192 @@
-.exercises-main-title {
-    display: flex;
+/* .exercises-main-title {
+  display: flex;
     justify-content: flex-start;
-    margin-top: 40px;
-    color: #242424;
-    font-family: Neue Montreal;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 38px;
-    letter-spacing: -0.56px;
-}
+  margin-top: 40px;
+  color: #242424;
+  font-family: Neue Montreal;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: -0.56px;
+} */
 
-.exercises-filter-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 20px;
-    gap: 20px;
-}
+/*
+.exercises-filter-btn {
+  background-color: unset;
+  border: none;
+  color: #242424;
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+} */
 
-.exercises-filter-btn {    
-    background-color: unset;
-    border: none;  
-    color: #242424;
-    font-family: Neue Montreal;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;    
+.container-exercises-filter-buttons {
+  flex-grow: 1;
+  margin-bottom: 80px;
 }
 
 .container-for-h2-and-p-card {
-    width: 137px;
-    height: 40px;  
+  width: 137px;
+  height: 40px;
 }
 
 .filter-of-body-parts {
-    position: relative;
+  position: relative;
 }
 .filter-of-body-parts::after {
-    opacity: 0;
-    content: "";
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 87%;
-    height: 4px;
-    border-radius: 2px;
-    background: #242424;  
-    bottom: -4px;
-    left: 5px;      
+  opacity: 0;
+  content: '';
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #242424;
+  bottom: -4px;
 }
 
 .filter-of-body-parts.active::after {
-    opacity: 100;
-    content: "";
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 87%;
-    height: 4px;
-    border-radius: 2px;
-    background: #242424;  
-    bottom: -4px;
-    left: 5px;   
+  opacity: 100;
 }
 
 .filter-of-muscles {
-    position: relative;
-    color: rgba(36, 36, 36, 0.6);
+  position: relative;
+  color: rgba(36, 36, 36, 0.6);
 }
 .filter-of-muscles::after {
-    opacity: 0;
-    content: "";
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    background: #242424;  
-    bottom: -4px;
-    left: 5.5px; 
+  opacity: 0;
+  content: '';
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #242424;
+  bottom: -4px;
+  left: 5.5px;
 }
 
 .filter-of-muscles.active::after {
-    opacity: 100;
-    content: "";
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    background: #242424;  
-    bottom: -4px;
-    left: 5.5px; 
+  opacity: 100;
+  content: '';
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #242424;
+  bottom: -4px;
+  left: 5.5px;
 }
 
 .filter-of-equipment {
-    position: relative;
-    color: rgba(36, 36, 36, 0.6);
+  position: relative;
+  color: rgba(36, 36, 36, 0.6);
 }
 .filter-of-equipment::after {
-    opacity: 0;
-    content: "";
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    background: #242424;  
-    bottom: -4px;
-    left: 5px; 
+  opacity: 0;
+  content: '';
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #242424;
+  bottom: -4px;
+  left: 5px;
 }
 
 .filter-of-equipment.active::after {
-    opacity: 100;
-    content: "";
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    background: #242424;  
-    bottom: -4px;
-    left: 5px; 
+  opacity: 100;
+  content: '';
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #242424;
+  bottom: -4px;
+  left: 5px;
 }
 
 .filter-of-equipment.active::after {
-    opacity: 100;
+  opacity: 100;
 }
 
 .container-exercises-markup {
-    width: 335px;
-    margin-left: auto;
-    margin-right: auto;    
+  /* width: 335px; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .list-for-new-exercises {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-    margin-top: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.new-exercises-item:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .new-exercises-item {
-    width: 335px;
-    height: 225px;
-    border-radius: 12px;    
+  width: 335px;
+  height: 225px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
-.exercises-filter-IMG {     
-    height: 225px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    border-radius: 12px;    
+.exercises-filter-IMG {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100%;
+  border-radius: 12px;
 }
 .exercises-title-of-item {
-    text-align: center;    
-    text-transform: capitalize;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    color: #F4F4F4;    
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: #f4f4f4;
 }
 .exercises-text-of-item {
-    text-align: center;
-   
-    color: rgba(244, 244, 244, 0.40);    
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
+  text-align: center;
+
+  color: rgba(244, 244, 244, 0.4);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .list-for-new-exercises {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 32px;
+  }
+
+  .new-exercises-item:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .new-exercises-item {
+    flex-basis: calc((100% - 30px) / 3);
+    height: 242px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container-exercises-filter-buttons {
+    margin-bottom: 0;
+  }
 }
