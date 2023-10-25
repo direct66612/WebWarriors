@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Energy</title>
     
-    <script type="module" crossorigin src="/WebWarriors/assets/favorites-dde7e500.js"></script>
+    <script type="module" crossorigin src="/WebWarriors/assets/favorites-7e928b9c.js"></script>
     <link rel="modulepreload" crossorigin href="/WebWarriors/assets/symbol-defs-a74cbd4a.js">
     <link rel="stylesheet" href="/WebWarriors/assets/symbol-defs-68532ffe.css">
   </head>
@@ -208,6 +208,150 @@
 </div>
 
   
+  <div class="backdrop-ex is-hidden">
+  <div class="modal-ex is-hidden">
+    <button type="button" class="modal-close-btn">
+      <svg class="modal-close-btn-icon" width="20" height="20">
+        <use href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#close"></use>
+      </svg>
+    </button>
+
+    <div class="ex-wrapper">
+      <img class="modal-img" src="" alt="Name exercise" />
+      <div class="ex-info-wrapper">
+        <h2 class="ex-title">Air bake</h2>
+
+        <div class="rating-container">
+          <p class="ratinng-value">#</p>
+
+          <ul class="modal-rating-star-list">
+            <li class="modal-rating-star-item">
+              <svg class="modal-rating-star-icon" width="18" height="18">
+                <use
+                  href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-exercises-content-silver-star"
+                ></use>
+              </svg>
+            </li>
+            <li class="modal-rating-star-item">
+              <svg class="modal-rating-star-icon" width="18" height="18">
+                <use
+                  href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-exercises-content-silver-star"
+                ></use>
+              </svg>
+            </li>
+            <li class="modal-rating-star-item">
+              <svg class="modal-rating-star-icon" width="18" height="18">
+                <use
+                  href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-exercises-content-silver-star"
+                ></use>
+              </svg>
+            </li>
+            <li class="modal-rating-star-item">
+              <svg class="modal-rating-star-icon" width="18" height="18">
+                <use
+                  href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-exercises-content-silver-star"
+                ></use>
+              </svg>
+            </li>
+            <li class="modal-rating-star-item">
+              <svg class="modal-rating-star-icon" width="18" height="18">
+                <use
+                  href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-exercises-content-silver-star"
+                ></use>
+              </svg>
+            </li>
+          </ul>
+        </div>
+        <ul class="info-list"></ul>
+        <p class="ex-description">
+          This refers to your core muscles, which include the rectus abdominis,
+          obliques, and transverse abdominis. They're essential for maintaining
+          posture, stability, and generating force in many movements. Exercises
+          that target the abs include crunches, leg raises, and planks.
+        </p>
+      </div>
+    </div>
+    <div class="modal-btn-container">
+      <button class="btn-add-favorite" type="button">
+        Add to favorite
+        <svg
+          class="modal-heart-icon"
+          width="18"
+          height="18"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <use href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-exercises-content-heart"></use>
+        </svg>
+      </button>
+      <button class="btn-give-rating" type="button" data-modal-rating-open>
+        Give a rating
+      </button>
+    </div>
+  </div>
+  <!-- <div class="backdrop"> -->
+
+<form class="rating-feedback-form is-hidden">
+  <button class="close-rating-btn" type="button">
+    <svg class="close" width="24" height="24">
+      <use href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#close"></use>
+    </svg>
+  </button>
+  <p class="rating-modal-title">Rating</p>
+
+  <div class="rating-stars">
+    <span class="rating-number">0.0</span>
+    <input class="star-radio" name="star" id="star1" type="radio" value="1" />
+    <label class="star-label" for="star1">
+      <svg class="star" width="24" height="24">
+        <use href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-form-silver-star"></use>
+      </svg>
+    </label>
+    <input class="star-radio" name="star" id="star2" type="radio" value="2" />
+    <label class="star-label" for="star2">
+      <svg class="star" width="24" height="24">
+        <use href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-form-silver-star"></use>
+      </svg>
+    </label>
+    <input class="star-radio" name="star" id="star3" type="radio" value="3" />
+    <label class="star-label" for="star3">
+      <svg class="star" width="24" height="24">
+        <use href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-form-silver-star"></use>
+      </svg>
+    </label>
+    <input class="star-radio" name="star" id="star4" type="radio" value="4" />
+    <label class="star-label" for="star4">
+      <svg class="star" width="24" height="24">
+        <use href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-form-silver-star"></use>
+      </svg>
+    </label>
+    <input class="star-radio" name="star" id="star5" type="radio" value="5" />
+    <label class="star-label" for="star5">
+      <svg class="star" width="24" height="24">
+        <use href="/WebWarriors/assets/symbol-defs-f0e814bd.svg#icon-form-silver-star"></use>
+      </svg>
+    </label>
+  </div>
+  <input
+    class="rating-user-email"
+    type="email"
+    name="userEmail"
+    placeholder="Email"
+    required
+  />
+  <textarea
+    class="rating-user-comment"
+    name="comment"
+    minlength="5"
+    placeholder="Your comment"
+    required
+  ></textarea>
+  <button type="submit" class="rating-submit-btn">Send</button>
+</form>
+<!-- </div> -->
+
+</div>
+
 </section>
 </div>
             <div class="favorites-exercise-wrapper">
