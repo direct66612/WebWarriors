@@ -1,6 +1,23 @@
 body {
   background: #f4f4f4;
 }
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .favorites-container {
   margin: 0 auto;
   max-width: 375px;
@@ -23,7 +40,7 @@ body {
   max-width: 318px;
   text-align: center;
   line-height: 18px;
-  display: none;
+  transition: 800ms ease-in-out;
 }
 .favorites-exercise-card-wrapper {
   display: flex;
