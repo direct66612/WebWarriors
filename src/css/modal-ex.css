@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(4, 4, 4, 0.40);
+  background-color: rgba(4, 4, 4, 0.4);
   overflow: auto;
   opacity: 1;
   visibility: visible;
@@ -20,12 +20,13 @@
 }
 .modal-ex {
   position: absolute;
-  top: 5%;
+  top: 50%;
   left: 50%;
   width: calc(100% - 2 * 20px);
-  background-color: #F4F4F4;
+  max-width: 335px;
+  background-color: #242424;
   border-radius: 20px;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   padding: 40px 20px;
   overflow-y: auto;
   z-index: 100;
@@ -35,6 +36,7 @@
   top: 14px;
   right: 14px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 20px;
@@ -45,73 +47,191 @@
   margin-bottom: 6px;
 }
 .modal-close-btn-icon {
-  stroke: #F4F4F4;
+  stroke: #f4f4f4;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close-btn:hover .modal-close-btn-icon,
 .modal-close-btn:focus .modal-close-btn-icon {
   stroke: #242424;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
+  border-radius: 50%;
 }
 .modal-close-btn:active .modal-close-btn-icon {
   stroke: #242424;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 .ex-wrapper {
   margin-bottom: 40px;
 }
 .modal-img {
   display: block;
-  max-width: 295px;
+  widows: 100%;
   margin: 0 auto;
-  border: 12px;
-
+  border-radius: 12px;
+  margin-bottom: 20px;
 }
 .ex-info-wrapper {
   display: flex;
+  flex-direction: column;
 }
+
 .ex-title {
   font-size: 20px;
   line-height: 20px;
   margin-bottom: 10px;
+  color: #f4f4f4;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-weight: 500;
+}
+
+.ex-title::first-letter,
+.info-item_info::first-letter,
+.info-item::first-letter {
+  text-transform: uppercase;
 }
 .rating-container {
+  display: flex;
+  text-align: center;
+  gap: 2px;
+  margin-bottom: 20px;
 }
 .ratinng-value {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: #f4f4f4;
 }
 .modal-rating-star-list {
+  display: flex;
+  flex-direction: row;
 }
-.modal-rating-star-item {
-}
+
 .modal-rating-star-icon {
+  fill: #f4f4f4;
 }
 .active {
   stroke: transparent;
-  fill: #EEA10C;;
+  fill: #eea10c;
 }
 .info-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+  border-top: 1px solid rgba(244, 244, 244, 0.2);
+  border-bottom: 1px solid rgba(244, 244, 244, 0.2);
+  margin-bottom: 20px;
+}
+
+.info-item {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  color: #f4f4f4;
+}
+.info-item_info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgba(244, 244, 244, 0.4);
 }
 .ex-description {
+  color: rgba(244, 244, 244, 0.6);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
 }
 .modal-btn-container {
+  display: flex;
+  gap: 6px;
 }
 .btn-add-favorite {
+  display: inline-flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  background: #f4f4f4;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 18px;
+}
+
+.btn-add-favorite:hover {
+  display: inline-flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  border: 1px solid #f4f4f4;
+  background: transparent;
+  color: #f4f4f4;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 18px;
 }
 .btn-give-rating {
+  display: inline-flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  border: 1px solid #f4f4f4;
+  background: transparent;
+  color: #f4f4f4;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 18px;
 }
-
-
+.btn-give-rating:hover{
+  display: inline-flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  background: #f4f4f4;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 18px;
+  color: #242424;
+}
 @media screen and (min-width: 768px) {
- .modal-ex {
-  max-width: 704px;
+  .modal-ex {
+    max-width: 705px;
+    padding: 32px;
+  }
+.ex-wrapper {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 64px;
 }
-
-.modal-img {
-  max-width: 270px;
+  .modal-img {
+    max-width: 270px;
+  }
+  .ex-title {
+  margin-bottom: 8px;
+}
+.rating-container {
+  margin-bottom: 16px;
+}
+.info-list {
+ gap: 16px;
+ margin-bottom: 16px;
 }
 }
 
 @media screen and (min-width: 1440px) {
- 
 }

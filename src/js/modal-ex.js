@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const backdrop = document.querySelector('.backdrop-ex');
 const closeButton = document.querySelector('.modal-close-btn');
 const modal = document.querySelector('.modal-ex');
@@ -7,15 +8,19 @@ const KEY_LS = 'favoriteExercises';
 
 closeButton.addEventListener('click', closeModal);
 document.addEventListener('keydown', onEscKeyPress);
+const ratingForm = document.querySelector('.rating-feedback-form')
 
 backdrop.addEventListener('click', event => {
-  if (event.target !== modal && !modal.contains(event.target)) {
+  if (event.target === backdrop ) {
     closeModal();
+    ratingForm.classList.add('is-hidden')
   }
 });
 
+
 function openModal() {
   if (modal) {
+    document.querySelector('body').style.overflow='hidden'
     modal.classList.remove('is-hidden');
     backdrop.classList.remove('is-hidden');
     document.addEventListener('keydown', onEscKeyPress);
@@ -25,7 +30,7 @@ function openModal() {
     });
 
     backdrop.removeEventListener('click', closeModal);
-    backdrop.addEventListener('click', closeModal);
+    // backdrop.addEventListener('click', closeModal);
 
     updateFavoriteButtonStatus(exercise);
   }
@@ -33,10 +38,13 @@ function openModal() {
 
 function closeModal() {
   if (modal) {
+        document.querySelector('body').style.overflow='scroll'
+
     modal.classList.add('is-hidden');
     document.removeEventListener('keydown', onEscKeyPress);
     backdrop.removeEventListener('click', closeModal);
     backdrop.classList.add('is-hidden');
+    ratingForm.classList.add('is-hidden')
   }
 }
 
@@ -46,11 +54,11 @@ function onEscKeyPress(event) {
   }
 }
 
-backdrop.addEventListener('click', event => {
-  if (event.target === backdrop) {
-    closeModal();
-  }
-});
+// backdrop.addEventListener('click', event => {
+//   if (event.target === backdrop) {
+//     closeModal();
+//   }
+// });
 
 document.addEventListener('DOMContentLoaded', () => {
   const exercisesContainer = document.querySelector('.list-for-new-exercises');
@@ -104,24 +112,21 @@ async function fetchExercise(exerciseId) {
 function displayExerciseImg(exercise) {
   const exerciseImg = document.querySelector('.modal-img');
   exerciseImg.src = exercise[0].gifUrl;
-  // console.log(exercise[0].gifUrl);
-  // if (imgLink !== '') {exerciseImg.src = `${imgLink}`;
-  //   }
 }
 
 function displayExerciseTitle(exercise) {
   const exerciseTitleEl = document.querySelector('.ex-title');
-  exerciseTitleEl.textContent = exercise.name;
+  exerciseTitleEl.textContent = exercise[0].name;
 }
 
 function displayExerciseDescription(exercise) {
   const exerciseDecriptionEl = document.querySelector('.ex-description');
-  exerciseDecriptionEl.textContent = exercise.description;
+  exerciseDecriptionEl.textContent = exercise[0].description;
 }
 
 function displayExerciseRating(exercise) {
   const exerciseRatingEl = document.querySelector('.ratinng-value');
-  exerciseRatingEl.textContent = exercise[0].rating;
+  exerciseRatingEl.textContent = Number.isInteger(exercise[0].rating) ? `${(exercise[0].rating)}.0` : (exercise[0].rating);
 }
 
 function displayExerciseList(exercise) {
@@ -131,20 +136,18 @@ function displayExerciseList(exercise) {
       const { bodyPart, burnedCalories, target, equipment, popularity, time } =
         item;
       return `
-    <li class="info-item">
-      <p class="info-item_name">Target ${target}</p>
-      <p class="info-item_info">Body Part ${bodyPart}</p>
-      <p class="info-item_info">Equipment ${equipment}</p>
-      <p class="info-item_info">Popular ${popularity}</p>
-      <p class="info-item_info">Burned Calories ${burnedCalories}/${time}</p>
-    </li>
+      <li class="info-item_info"><span>Target</span> <span class="info-item">${target}</span></li>
+      <li class="info-item_info"><span>Body Part</span> <span class="info-item">${bodyPart}</span></li>
+      <li class="info-item_info"><span>Equipment</span> <span class="info-item">${equipment}</span></li>
+      <li class="info-item_info"><span>Popular</span> <span class="info-item">${popularity}</span></li>
+      <li class="info-item_info"><span>Burned Calories</span> <span class="info-item">${burnedCalories}/${time} min</span></li>
   `;
     })
     .join('');
 }
 
 function displayStarRating(exercise) {
-  const ratingValue = parseFloat(exercise.rating);
+  const ratingValue = parseFloat(exercise[0].rating);
   const starElements = document.querySelectorAll('.modal-rating-star-icon');
 
   for (let i = 0; i < starElements.length; i++) {
@@ -200,20 +203,20 @@ addToFavoriteButton.addEventListener('click', () => {
 
   if (isFavorite) {
     removeFromFavorites(exerciseId);
-    addToFavoriteButton.textContent = 'Add to favorite';
+    addToFavoriteButton.textContent = 'Add to favorite ♡';
   } else {
     addToFavorites(exerciseId);
-    addToFavoriteButton.textContent = 'Remove from favorite';
+    addToFavoriteButton.textContent = 'Remove from favorite 🗑';
   }
 });
 
-let exerciseId = exercise[0]._id;
+// let exerciseId = exercise[0]._id;
 
 function updateFavoriteButtonStatus(exerciseId) {
   const isFavorite = isExerciseInFavorites(exerciseId);
   addToFavoriteButton.textContent = isFavorite
-    ? 'Remove from favorite'
-    : 'Add to favorite';
+    ? 'Remove from favorite 🗑'
+    : 'Add to favorite ♡';
 }
 
 export { currentExerciseId };
