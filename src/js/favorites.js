@@ -14,7 +14,14 @@ if (arrFavoriteExercises.length) {
   const favoritsWorkoutsList = document.querySelector(
     '.favorites-exercise-card-wrapper'
   );
-  favoritsWorkoutsList.innerHTML = createMarkup(arrFavoriteExercises);
+  arrFavoriteExercises.forEach(elem =>
+    workoutSearch(elem).then(response =>
+      favoritsWorkoutsList.insertAdjacentHTML(
+        'beforeend',
+        createMarkup(response)
+      )
+    )
+  );
 }
 
 if (arrFavoriteExercises.length) {
