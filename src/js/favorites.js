@@ -32,38 +32,9 @@ let arrFavoriteExercises =
 
 if (arrFavoriteExercises.length) {
   messageNone.style.display = 'none';
+  updateMarkup();
 } else {
   messageNone.style.display = 'block';
-}
-
-if (arrFavoriteExercises.length) {
-  if (!isDesktop) {
-    const splitArrFavoriteExercises = splitArrayIntoSubarrays(
-      arrFavoriteExercises,
-      perPage
-    );
-    const totalPages = Math.ceil(arrFavoriteExercises.length / perPage);
-
-    workoutSearch(splitArrFavoriteExercises[page - 1])
-      .then(data => {
-        favoritsWorkoutsList.innerHTML = createMarkup(data);
-        const array = returnPaginationRange(totalPages, page);
-        pagination.innerHTML = renderPagination(page, array);
-      })
-      .catch(error => {
-        console.log(error);
-        Notify.failure('Oops. Something went wrong. Please refresh the page.');
-      });
-  } else {
-    workoutSearch(arrFavoriteExercises)
-      .then(data => {
-        favoritsWorkoutsList.innerHTML = createMarkup(data);
-      })
-      .catch(error => {
-        console.log(error);
-        Notify.failure('Oops. Something went wrong. Please refresh the page.');
-      });
-  }
 }
 
 function onPageShow(event) {
@@ -112,6 +83,25 @@ function deletefromLocalStorage(event) {
     JSON.stringify(arrFavoriteExercises)
   );
 
+  if (arrFavoriteExercises.length === 0) {
+    messageNone.style.display = 'block';
+    favoritsWorkoutsList.innerHTML = '';
+    pagination.innerHTML = '';
+  } else {
+    updateMarkup();
+  }
+}
+
+// Функція для розділення масиву на підмасиви
+function splitArrayIntoSubarrays(arr, subarraySize) {
+  const result = [];
+  for (let i = 0; i < arr.length; i += subarraySize) {
+    result.push(arr.slice(i, i + subarraySize));
+  }
+  return result;
+}
+
+function updateMarkup() {
   if (!isDesktop) {
     const splitArrFavoriteExercises = splitArrayIntoSubarrays(
       arrFavoriteExercises,
@@ -139,13 +129,4 @@ function deletefromLocalStorage(event) {
         Notify.failure('Oops. Something went wrong. Please refresh the page.');
       });
   }
-}
-
-// Функція для розділення масиву на підмасиви
-function splitArrayIntoSubarrays(arr, subarraySize) {
-  const result = [];
-  for (let i = 0; i < arr.length; i += subarraySize) {
-    result.push(arr.slice(i, i + subarraySize));
-  }
-  return result;
 }
