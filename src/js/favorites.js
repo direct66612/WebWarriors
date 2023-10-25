@@ -13,6 +13,7 @@ if (arrFavoriteExercises.length) {
   const favoritsWorkoutsList = document.querySelector(
     '.favorites-exercise-card-wrapper'
   );
+
   favoritsWorkoutsList.innerHTML = createMarkup(arrFavoriteExercises);
 }
 if (arrFavoriteExercises.length) {

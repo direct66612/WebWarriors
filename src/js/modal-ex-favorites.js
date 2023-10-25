@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   exercisesContainer.addEventListener('click', async event => {
-    const seeExerciseBtn = event.target.closest('.item-button');
+    const seeExerciseBtn = event.target.closest('.exercise-card-start-btn');
     if (!seeExerciseBtn) return;
 
     let exerciseId = seeExerciseBtn.dataset.id;
