@@ -108,7 +108,6 @@ async function fetchExercise(exerciseId) {
     console.log(error);
   }
 }
-
 function displayExerciseImg(exercise) {
   const exerciseImg = document.querySelector('.modal-img');
   exerciseImg.src = exercise[0].gifUrl;
@@ -220,6 +219,5 @@ function updateFavoriteButtonStatus(exerciseId) {
     ? 'Remove from favorite 🗑'
     : 'Add to favorite ♡';
 }
-
 export { currentExerciseId };
 export { openModal };

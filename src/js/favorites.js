@@ -2,7 +2,6 @@ import notiflix from 'notiflix';
 import { createMarkup } from './templates/favorites-markup';
 import { openModal } from './modal-ex-favorites';
 import { workoutSearch } from './api-service/favorites-api';
-
 const arrFavoriteExercises = JSON.parse(
   localStorage.getItem('favoriteExercises')
 );
@@ -14,16 +13,8 @@ if (arrFavoriteExercises.length) {
   const favoritsWorkoutsList = document.querySelector(
     '.favorites-exercise-card-wrapper'
   );
-  arrFavoriteExercises.forEach(elem =>
-    workoutSearch(elem).then(response =>
-      favoritsWorkoutsList.insertAdjacentHTML(
-        'beforeend',
-        createMarkup(response)
-      )
-    )
-  );
+  favoritsWorkoutsList.innerHTML = createMarkup(arrFavoriteExercises);
 }
-
 if (arrFavoriteExercises.length) {
   const deleteBtn = document.querySelectorAll('.exercise-card-remove-btn');
 
@@ -49,6 +40,9 @@ if (arrFavoriteExercises.length) {
     );
     location.reload();
   }
+}
+if (!arrFavoriteExercises.length) {
+  messageNone.style.display = 'block';
 }
 
 const openButtons = document.querySelectorAll('[data-modal-open]');
