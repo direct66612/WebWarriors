@@ -1,11 +1,12 @@
 import axios from 'axios';
 import notiflix from 'notiflix';
+// import { returnPaginationRange } from './returnPagination';
+// import { renderPagination } from './pagination';
 import svgSprite from '../img/symbol-defs.svg';
 const refs = {
   notFoundText: document.querySelector('.favorites-not-found-text'),
   exercisesWrapper: document.querySelector('.favorites-exercise-card-wrapper'),
 };
-
 const arr = [
   '64f389465ae26083f39b17a2',
   '64f389465ae26083f39b17df',

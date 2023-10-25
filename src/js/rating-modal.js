@@ -1,4 +1,4 @@
-import {currentExerciseId} from './modal-ex';
+import { currentExerciseId } from './modal-ex';
 import axios from 'axios';
 import Notiflix, { Notify } from 'notiflix';
 const ratingRefs = {
@@ -8,9 +8,9 @@ const ratingRefs = {
   stars: document.querySelectorAll('.star'),
   openModalBtn: document.querySelector('.btn-give-rating'),
   exerciseModal: document.querySelector('.modal-ex'),
-  ratingNumber:document.querySelector('.rating-number')
+  ratingNumber: document.querySelector('.rating-number'),
 };
-ratingRefs.closeBtn.addEventListener('click',ratingModalClose)
+ratingRefs.closeBtn.addEventListener('click', ratingModalClose);
 
 ratingRefs.ratingStars.addEventListener('change', onStarClick);
 
@@ -125,11 +125,11 @@ function rateFormSubmit(ev) {
   setDefaultColorInput(ev.currentTarget.elements.userEmail);
   setDefaultColorInput(ev.currentTarget.elements.comment);
   starsColorReset(ratingRefs.stars);
-  ratingRefs.ratingNumber.textContent = '0.0'
+  ratingRefs.ratingNumber.textContent = '0.0';
   ev.currentTarget.reset();
   ratingModalClose();
 }
-ratingRefs.openModalBtn.addEventListener('click',ratingModalOpen)
+ratingRefs.openModalBtn.addEventListener('click', ratingModalOpen);
 function ratingModalOpen(ev) {
   // ratingRefs.ratingForm.dataset.id = ev.currentTarget.dataset.id;
   ratingRefs.ratingForm.classList.remove('is-hidden');
@@ -140,6 +140,4 @@ function ratingModalOpen(ev) {
 function ratingModalClose() {
   ratingRefs.ratingForm.classList.add('is-hidden');
   ratingRefs.exerciseModal.classList.remove('is-hidden');
-
-
 }
