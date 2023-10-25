@@ -31,6 +31,7 @@ body {
   align-items: flex-start;
   flex-direction: column;
   gap: 20px;
+  margin-bottom: 20px;
 }
 .favorites-exercise-card {
   width: 100%;
@@ -54,30 +55,14 @@ body {
   line-height: normal;
 }
 .exercise-card-remove-btn {
-  /* display: flex;
-  align-items: center; */
-  /* gap: 2px; */
-  /* transition: ease-in-out 300ms; */
-  /* overflow: hidden; */
   margin-left: 8px;
   background-color: transparent;
   border: none;
-  /* color: #fff;
-  font-size: 12px;
-  line-height: 10px; */
 }
-/* .exercise-card-remove-btn:hover,
-.exercise-card-remove-btn:focus {
-  width: 228px;
-  background-color: #242424;
-  border-radius: 30px;
-  border: 1px solid #f4f4f4;
-  height: 27px;
-  flex-direction: row-reverse;
-} */
+
 .exercise-card-remove-icon {
-  fill: #242424;
-  stroke: #fff;
+  stroke: #242424;
+  fill: #fff;
 }
 .exercise-card-start-btn {
   margin-left: auto;
@@ -162,6 +147,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px 16px;
+    margin-bottom: 32px;
   }
   .favorites-exercise-card {
     max-width: calc((100% - 16px) / 2);
