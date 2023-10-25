@@ -13,8 +13,6 @@ if (arrFavoriteExercises.length) {
   const favoritsWorkoutsList = document.querySelector(
     '.favorites-exercise-card-wrapper'
   );
-
-  favoritsWorkoutsList.innerHTML = createMarkup(arrFavoriteExercises);
 }
 if (arrFavoriteExercises.length) {
   const deleteBtn = document.querySelectorAll('.exercise-card-remove-btn');
@@ -118,18 +116,6 @@ openButtons.forEach(openModalBtnItem => {
 //       addListener();
 //     });
 //   });
-// }
-
-// async function getFavoriteExerciseData(ids) {
-//   const arrayOfPromises = ids.map(async id => {
-//     const response = await axios.get(
-//       `https://your-energy.b.goit.study/api/exercises/${id}`
-//     );
-//     return response;
-//   });
-
-//   const exercises = await Promise.all(arrayOfPromises);
-//   return exercises;
 // }
 
 // function firstLetterUpperCase(word) {

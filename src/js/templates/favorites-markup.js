@@ -1,14 +1,6 @@
 import svgSprite from '../../img/symbol-defs.svg';
-export function createMarkup(arr) {
-  return arr
-    .map(
-      ({
-        _id,
-        bodyPart,
-        name,
-        target,
-        burnedCalories,
-      }) => `<div class="favorites-exercise-card" data-modal-open data-id="${_id}">
+export function createMarkup(bodyPart, name, target, burnedCalories, _id) {
+  return `<div class="favorites-exercise-card" data-modal-open data-id="${_id}">
                   <div class="exercise-card-top">
                     <p class="exercise-card-top-text">WORKOUT</p>
                     <button class="exercise-card-remove-btn">
@@ -47,7 +39,5 @@ export function createMarkup(arr) {
                   <div class="exercise-card-bottom">
                     <p class="exercice-card-indexes">Burned calories: <span class="exercice-card-indexes-values">${burnedCalories}/3 min</span>Body part: <span class="exercice-card-indexes-values">${bodyPart}</span>Target: <span class="exercice-card-indexes-values">${target}</span></p>
                   </div>
-                </div>`
-    )
-    .join('');
+                </div>`;
 }

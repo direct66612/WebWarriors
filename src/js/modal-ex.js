@@ -198,13 +198,7 @@ function removeFromFavorites(exerciseId) {
 const addToFavoriteButton = document.querySelector('.btn-add-favorite');
 
 addToFavoriteButton.addEventListener('click', () => {
-  const exerciseId = {
-    _id: exercise[0]._id,
-    bodyPart: exercise[0].bodyPart,
-    name: exercise[0].name,
-    target: exercise[0].target,
-    burnedCalories: exercise[0].burnedCalories,
-  };
+  const exerciseId = exercise[0]._id;
   const isFavorite = isExerciseInFavorites(exerciseId);
 
   if (isFavorite) {
