@@ -1,135 +1,151 @@
-import notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createMarkup } from './templates/favorites-markup';
 import { openModal } from './modal-ex-favorites';
 import { workoutSearch } from './api-service/favorites-api';
-const arrFavoriteExercises = JSON.parse(
-  localStorage.getItem('favoriteExercises')
-);
+import { returnPaginationRange } from './utils/utils';
+import { renderPagination } from './templates/pagination-markup';
+
 const messageNone = document.querySelector('.favorites-not-found-text');
+const favoritsWorkoutsList = document.querySelector(
+  '.favorites-exercise-card-wrapper'
+);
+const exercisesListWrapper = document.querySelector(
+  '.favorites-exercise-wrapper'
+);
+const pagination = document.querySelector('.pagination-nav');
+
+let page = 1;
+let perPage;
+const isDesktop = window.innerWidth >= 1440;
+
+if (window.innerWidth < 768) {
+  perPage = 8;
+} else if (window.innerWidth < 1440) {
+  perPage = 10;
+}
+
+exercisesListWrapper.addEventListener('click', deletefromLocalStorage);
+pagination.addEventListener('click', onPageShow);
+
+let arrFavoriteExercises =
+  JSON.parse(localStorage.getItem('favoriteExercises')) || [];
+
 if (arrFavoriteExercises.length) {
   messageNone.style.display = 'none';
-}
-if (arrFavoriteExercises.length) {
-  const favoritsWorkoutsList = document.querySelector(
-    '.favorites-exercise-card-wrapper'
-  );
-}
-if (arrFavoriteExercises.length) {
-  const deleteBtn = document.querySelectorAll('.exercise-card-remove-btn');
-
-  deleteBtn.forEach(btnEl => {
-    btnEl.addEventListener('click', deletefromLocalStorage);
-  });
-  let infexOfEl;
-
-  function deletefromLocalStorage(event) {
-    const currentId = event.target.closest('.favorites-exercise-card').dataset
-      .id;
-    arrFavoriteExercises.forEach(el => {
-      infexOfEl = arrFavoriteExercises.findIndex(
-        ({ _id }) => _id === currentId
-      );
-    });
-    arrFavoriteExercises.splice(infexOfEl, 1);
-
-    localStorage.removeItem('favoriteExercises');
-    localStorage.setItem(
-      'favoriteExercises',
-      JSON.stringify(arrFavoriteExercises)
-    );
-    location.reload();
-  }
-}
-if (!arrFavoriteExercises.length) {
+} else {
   messageNone.style.display = 'block';
 }
 
-const openButtons = document.querySelectorAll('[data-modal-open]');
-openButtons.forEach(openModalBtnItem => {
-  openModalBtnItem.addEventListener('click', openModal);
-});
-// const refs = {
-//   notFoundText: document.querySelector('.favorites-not-found-text'),
-//   exercisesWrapper: document.querySelector('.favorites-exercise-card-wrapper'),
-// };
-// const arr = [
-//   '64f389465ae26083f39b17a2',
-//   '64f389465ae26083f39b17df',
-//   '64f389465ae26083f39b17a5',
-//   '64f389465ae26083f39b17b7',
-//   '64f389465ae26083f39b17ba',
-//   '64f389465ae26083f39b180e',
-//   '64f389465ae26083f39b189e',
-//   '64f389465ae26083f39b18ae',
-//   '64f389465ae26083f39b18d7',
-//   '64f389465ae26083f39b190d',
-// ];
+if (arrFavoriteExercises.length) {
+  if (!isDesktop) {
+    const splitArrFavoriteExercises = splitArrayIntoSubarrays(
+      arrFavoriteExercises,
+      perPage
+    );
+    const totalPages = Math.ceil(arrFavoriteExercises.length / perPage);
 
-// renderMarkup();
-// console.log(typeof refs.exercisesWrapper.innerHTML);
-// if (refs.exercisesWrapper.innerHTML === '') {
-//   refs.notFoundText.style.display = 'block';
-// }
-// function addListener() {
-//   document
-//     .querySelector('.favorites-exercise-card')
-//     .addEventListener('click', () => {
-//       console.log();
-//       if (
-//         event.target.classList.value === 'exercise-card-remove-btn' ||
-//         event.target.classList.value === 'exercise-card-remove-icon' ||
-//         event.target.classList.value === ''
-//       ) {
-//         removeValueFromArray(arr, event.currentTarget.dataset.id);
-//         refs.exercisesWrapper.innerHTML = '';
-//         renderMarkup();
-//         notiflix.Notify.warning('You have just deleted an exercise', {
-//           fontSize: '24px',
-//           width: '600px',
-//           position: 'center-top',
-//           distance: '165px',
-//           borderRadius: '10px',
-//         });
-//       }
-// else if (refs.exercisesWrapper.innerHTML === '') {
-//   refs.notFoundText.style.display = 'block';
-// }
-//       else {
-//         return;
-//       }
-//     });
-// }
-// function renderMarkup() {
-//   getFavoriteExerciseData(arr).then(response => {
-//     response.map(({ data }) => {
-//       const { bodyPart, name, target, burnedCalories, _id } = data;
-//       refs.exercisesWrapper.insertAdjacentHTML(
-//         'afterbegin',
-//         createMarkup(
-//           firstLetterUpperCase(bodyPart),
-//           firstLetterUpperCase(name),
-//           firstLetterUpperCase(target),
-//           burnedCalories,
-//           _id
-//         )
-//       );
-//       addListener();
-//     });
-//   });
-// }
+    workoutSearch(splitArrFavoriteExercises[page - 1])
+      .then(data => {
+        favoritsWorkoutsList.innerHTML = createMarkup(data);
+        const array = returnPaginationRange(totalPages, page);
+        pagination.innerHTML = renderPagination(page, array);
+      })
+      .catch(error => {
+        console.log(error);
+        Notify.failure('Oops. Something went wrong. Please refresh the page.');
+      });
+  } else {
+    workoutSearch(arrFavoriteExercises)
+      .then(data => {
+        favoritsWorkoutsList.innerHTML = createMarkup(data);
+      })
+      .catch(error => {
+        console.log(error);
+        Notify.failure('Oops. Something went wrong. Please refresh the page.');
+      });
+  }
+}
 
-// function firstLetterUpperCase(word) {
-//   const splitted = word.split('');
-//   const first = splitted[0].toUpperCase();
-//   const rest = [...splitted];
-//   rest.splice(0, 1);
-//   const result = [first, ...rest].join('');
-//   return result;
-// }
+function onPageShow(event) {
+  let page = event.target.dataset.page;
 
-// function removeValueFromArray(array, value) {
-//   const index = array.indexOf(value);
-//   if (index > -1) {
-//     array.splice(index, 1);
-//   }
-// }
+  if (
+    page === '...' ||
+    !event.target.classList.contains('js-page-link') ||
+    event.target.classList.contains('active')
+  ) {
+    return;
+  }
+
+  page = Number(page);
+  window.scrollTo({ top: favoritsWorkoutsList.offsetTop - 180 });
+
+  const splitArrFavoriteExercises = splitArrayIntoSubarrays(
+    arrFavoriteExercises,
+    perPage
+  );
+  const totalPages = Math.ceil(arrFavoriteExercises.length / perPage);
+
+  workoutSearch(splitArrFavoriteExercises[page - 1])
+    .then(data => {
+      favoritsWorkoutsList.innerHTML = createMarkup(data);
+      const array = returnPaginationRange(totalPages, page);
+      pagination.innerHTML = renderPagination(page, array);
+    })
+    .catch(error => {
+      console.log(error);
+      Notify.failure('Oops. Something went wrong. Please refresh the page.');
+    });
+}
+
+function deletefromLocalStorage(event) {
+  if (!event.target.closest('.exercise-card-remove-btn')) {
+    return;
+  }
+
+  const currentId = event.target.closest('.favorites-exercise-card').dataset.id;
+
+  arrFavoriteExercises = arrFavoriteExercises.filter(id => id !== currentId);
+
+  localStorage.setItem(
+    'favoriteExercises',
+    JSON.stringify(arrFavoriteExercises)
+  );
+
+  if (!isDesktop) {
+    const splitArrFavoriteExercises = splitArrayIntoSubarrays(
+      arrFavoriteExercises,
+      perPage
+    );
+    const totalPages = Math.ceil(arrFavoriteExercises.length / perPage);
+
+    workoutSearch(splitArrFavoriteExercises[page - 1])
+      .then(data => {
+        favoritsWorkoutsList.innerHTML = createMarkup(data);
+        const array = returnPaginationRange(totalPages, page);
+        pagination.innerHTML = renderPagination(page, array);
+      })
+      .catch(error => {
+        console.log(error);
+        Notify.failure('Oops. Something went wrong. Please refresh the page.');
+      });
+  } else {
+    workoutSearch(arrFavoriteExercises)
+      .then(data => {
+        favoritsWorkoutsList.innerHTML = createMarkup(data);
+      })
+      .catch(error => {
+        console.log(error);
+        Notify.failure('Oops. Something went wrong. Please refresh the page.');
+      });
+  }
+}
+
+// Функція для розділення масиву на підмасиви
+function splitArrayIntoSubarrays(arr, subarraySize) {
+  const result = [];
+  for (let i = 0; i < arr.length; i += subarraySize) {
+    result.push(arr.slice(i, i + subarraySize));
+  }
+  return result;
+}
