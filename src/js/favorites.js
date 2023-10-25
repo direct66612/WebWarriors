@@ -168,7 +168,8 @@ let array = [];
 
 if (
   localStorage.getItem('favoriteExercises') === null ||
-  localStorage.getItem('favoriteExercises') === ''
+  localStorage.getItem('favoriteExercises') === '' ||
+  localStorage.getItem('favoriteExercises') === '[]'
 ) {
   refs.notFoundText.classList.remove('hidden');
 } else {
