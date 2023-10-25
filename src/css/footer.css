@@ -1,3 +1,5 @@
+:root {}
+
 footer {
   background-color: #242424;
   color: #F4F4F4;
@@ -81,7 +83,6 @@ footer {
 
 .footer-text {
   color: #F4F4F4;
-  font-family: Neue Montreal;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -92,7 +93,6 @@ footer {
 
 .italic-word {
   color: #F4F4F4;
-  font-family: Neue Montreal;
   font-size: 40px;
   font-style: italic;
   font-weight: 400;
@@ -357,10 +357,6 @@ footer {
     flex-direction: row;
     flex-direction: column;
   }
-
-  /* .footer>.container-ftr {
-    padding: 64px 0 32px;
-  } */
 
   .footer-container-ftr {
     grid-template-columns: 178px 554px 350px;
