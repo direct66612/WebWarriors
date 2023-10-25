@@ -59,7 +59,9 @@ function onEscKeyPress(event) {
 // });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const exercisesContainer = document.querySelector('.list-for-new-exercises');
+  const exercisesContainer = document.querySelector(
+    '.favorites-exercise-card-wrapper'
+  );
 
   exercisesContainer.addEventListener('click', async event => {
     const seeExerciseBtn = event.target.closest('.item-button');
@@ -220,3 +222,4 @@ function updateFavoriteButtonStatus(exerciseId) {
 }
 
 export { currentExerciseId };
+export { openModal };
