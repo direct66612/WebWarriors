@@ -16,13 +16,13 @@ function checkWrapper() {
   }
 }
 
-function pushItemToStorage(item) {
-  array.push(item);
-  localStorage.setItem('favoriteExercises', array);
-}
+// function pushItemToStorage(item) {
+//   array.push(item);
+//   localStorage.setItem('favoriteExercises', array);
+// }
 
 function removeValueFromArrayStorage(array, value) {
-  console.log(array, value);
+  // console.log(array, value);
   const index = array.indexOf(value);
   if (index > -1) {
     array.splice(index, 1);
@@ -38,7 +38,7 @@ function getArrayFromStorage() {
 }
 
 function pushArrayToStorage(array) {
-  console.log(array);
+  // console.log(array);
   localStorage.setItem('favoriteExercises', array);
 }
 
@@ -177,9 +177,7 @@ if (
   array = getArrayFromStorage();
   refs.exercisesWrapper.innerHTML = '';
 
-  // checkWrapper();
-
   renderMarkup();
 
-  checkWrapper();
+  // checkWrapper();
 }
