@@ -57,6 +57,7 @@ export function handleToExercises(event) {
     return;
   }
 
+  filterList.querySelector('.active').disabled = false;
   list.innerHTML = loader;
   form.reset();
   pagination.removeEventListener('click', onCategoriesPage);
