@@ -7,6 +7,7 @@ import renderExercises from './templates/exercises-markup';
 import { renderPagination } from './templates/pagination-markup';
 import { onCategoriesPage } from './exercises-category';
 import { loader } from './templates/loader';
+import svgSprite from '../img/symbol-defs.svg';
 
 const form = document.querySelector('.js-form');
 const title = document.querySelector('.exercises-main-title');
@@ -92,13 +93,13 @@ export function handleToExercises(event) {
 
 const searchIcon = `
   <svg class="search-icon" width="26" height="26">
-    <use href="./img/symbol-defs.svg#icon-search"></use>
+    <use href="${svgSprite}#icon-search"></use>
   </svg>
 `;
 
 const clearIcon = `
   <svg class="clear-icon" width="18" height="18">
-    <use href="./img/symbol-defs.svg#icon-remove"></use>
+    <use href="${svgSprite}#icon-remove"></use>
   </svg>
 `;
 
