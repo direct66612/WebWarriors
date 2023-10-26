@@ -5,7 +5,7 @@ import { getExercisesMarkup } from './api-service/exercises-category-api';
 import { createMarkup } from './templates/exercises-category-markup';
 import { returnPaginationRange } from './utils/utils';
 import { renderPagination } from './templates/pagination-markup';
-import { clearInput, onExercisesPage } from './exercises';
+import { onExercisesPage } from './exercises';
 import { loader } from './templates/loader';
 
 const refs = {
@@ -59,7 +59,7 @@ function handleFilter(event) {
 
   refs.title.textContent = 'Exercises';
   refs.form.classList.add('is-hidden');
-  clearInput();
+  refs.form.reset();
   refs.list.dataset.filter = filter;
   getExercisesMarkup(filter, page)
     .then(data => {
@@ -68,7 +68,7 @@ function handleFilter(event) {
       } else {
         refs.pagination.style.display = 'block ';
       }
-
+      refs.newList.innerHTML = '';
       addMarkup(data.results);
       let array = returnPaginationRange(data.totalPages, page);
       refs.pagination.innerHTML = renderPagination(page, array);
@@ -110,6 +110,7 @@ export function onCategoriesPage(event) {
 
 function addMarkup(data) {
   if (Array.isArray(data)) {
+    console.log(data);
     refs.newList.innerHTML = createMarkup(data);
   } else {
     console.error('Data is not an array:', data);
