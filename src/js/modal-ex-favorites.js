@@ -30,7 +30,7 @@ function openModal() {
     backdrop.removeEventListener('click', closeModal);
     // backdrop.addEventListener('click', closeModal);
 
-    updateFavoriteButtonStatus(exercise);
+    updateFavoriteButtonStatus(exercise[0]._id);
   }
 }
 
@@ -43,6 +43,8 @@ function closeModal() {
     backdrop.removeEventListener('click', closeModal);
     backdrop.classList.add('is-hidden');
     ratingForm.classList.add('is-hidden');
+
+    location.reload();
   }
 }
 
