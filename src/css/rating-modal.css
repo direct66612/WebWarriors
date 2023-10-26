@@ -1,3 +1,16 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 .close-rating-btn {
   background-color: transparent;
   border: none;
@@ -16,12 +29,19 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0.3;
   width: 335px;
   height: 357px;
   border-radius: 20px;
   z-index: 100;
   background: #242424;
+  transition: transform 150ms ease-in, opacity 250ms ease-in;
+  
+}
+.rating-form-active{
+  transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
 
 @media screen and (min-width: 768px) {
@@ -31,7 +51,10 @@
     padding: 40px;
   }
 }
-
+.rating-form-active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
 .rating-modal-title {
   color: rgba(244, 244, 244, 0.4);
   font-size: 12px;
@@ -41,6 +64,8 @@
 
 .rating-stars {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   align-items: center;
   gap: 2px;
   margin-bottom: 20px;
@@ -115,11 +140,34 @@
   cursor: pointer;
 }
 
+.star-radio:checked ~ .star-label>.star,
+.star-label:hover ~ .star-label .star,
 .star-label:hover > .star {
-  cursor: pointer;
-  fill: #eea10c;
-  fill-opacity: 1;
+  fill:#eea10c;
+  transition: fill 150ms ease-in-out;
 }
+
+.star-radio:checked+.star-label:hover>.star,
+.star-radio:checked~label:hover>.star,
+/* highlight current and previous stars */
+.star-radio:checked~.star-label:hover~label>.star,
+/* highlight previous selected stars for new rating */
+.star-label:hover~.star-radio:checked~label>.star
+
+/* highlight previous selected stars */
+  {
+  fill: #e8f807;
+    transition: fill 150ms ease-in-out;
+}
+
+
+/* color previous stars on hover */
+
+/* .star-label:hover > .star {
+  cursor: pointer;
+  fill: ;
+  fill-opacity: 1;
+} */
 
 .star {
   fill: rgba(244, 244, 244, 0.2);
@@ -181,6 +229,10 @@
 .error{
     animation-name: error;
     animation-duration: 500ms;
+}
+.form-error{
+  animation-name: form-error;
+  animation-duration: 700ms;
 }
 
 @keyframes stretch-bounce {
@@ -245,4 +297,45 @@
         transform: translateX(0px);
         timing-function: ease-in;
     }
+}
+
+@keyframes form-error {
+  0% {
+    transform: translate(-50%, -50%);
+    timing-function: ease-in;
+  }
+
+  37% {
+    transform: translate(-55%, -50%);
+    timing-function: ease-out;
+  }
+
+  55% {
+    transform: translate(-45%, -50%);
+    timing-function: ease-in;
+  }
+
+  73% {
+    transform: translate(-54%, -50%);
+    timing-function: ease-out;
+  }
+
+  82% {
+    transform: translate(-46%, -50%);
+    timing-function: ease-in;
+  }
+
+  91% {
+    transform: translate(-52%, -50%);
+    timing-function: ease-out;
+  }
+
+  96% {
+    transform: translate(-48%, -50%);
+    timing-function: ease-in;
+  }
+
+  100% {
+transform: translate(-50%, -50%);    timing-function: ease-in;
+  }
 }
