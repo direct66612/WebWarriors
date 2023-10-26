@@ -70,10 +70,15 @@ export function handleToExercises(event) {
   form.addEventListener('input', handleSearch);
   getExerciseData(exercisesSearchParams, page)
     .then(data => {
-      list.innerHTML = '';
+      if (data.totalPages <= 1) {
+        pagination.style.display = 'none';
+      }
+
       const categoryName =
         exercisesSearchParams.category[0].toUpperCase() +
         exercisesSearchParams.category.slice(1);
+
+      list.innerHTML = '';
       title.innerHTML = `Exercises / <span>${categoryName}</span>`;
       list.innerHTML = renderExercises(data.results);
       let array = returnPaginationRange(data.totalPages, page);
@@ -122,6 +127,13 @@ function handleSearch(event) {
         pagination.innerHTML = '';
         return;
       }
+
+      if (data.totalPages <= 1) {
+        pagination.style.display = 'none';
+      } else {
+        pagination.style.display = 'block';
+      }
+
       list.innerHTML = renderExercises(data.results);
       let array = returnPaginationRange(data.totalPages, page);
       pagination.innerHTML = renderPagination(page, array);
