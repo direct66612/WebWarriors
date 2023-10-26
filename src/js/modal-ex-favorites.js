@@ -36,7 +36,7 @@ function openModal() {
 
 function closeModal() {
   if (modal) {
-    document.querySelector('body').style.overflow = 'scroll';
+    document.querySelector('body').style.overflow = 'visible';
 
     modal.classList.add('is-hidden');
     document.removeEventListener('keydown', onEscKeyPress);
