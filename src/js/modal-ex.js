@@ -12,7 +12,6 @@ const ratingForm = document.querySelector('.rating-feedback-form');
 backdrop.addEventListener('click', event => {
   if (event.target === backdrop) {
     closeModal();
-    ratingForm.classList.add('is-hidden');
   }
 });
 
@@ -42,7 +41,9 @@ function closeModal() {
     document.removeEventListener('keydown', onEscKeyPress);
     backdrop.removeEventListener('click', closeModal);
     backdrop.classList.add('is-hidden');
-    ratingForm.classList.add('is-hidden');
+    ratingForm.classList.add('visually-hidden');
+    ratingForm.classList.remove('rating-form-active');
+
   }
 }
 
