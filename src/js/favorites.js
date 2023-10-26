@@ -13,6 +13,8 @@ const exercisesListWrapper = document.querySelector(
   '.favorites-exercise-wrapper'
 );
 const pagination = document.querySelector('.pagination-nav');
+const nonDesktop = window.matchMedia('(max-width: 1339px)');
+const desktop = window.matchMedia('(min-width: 1440px)');
 
 let page = 1;
 let perPage;
@@ -23,6 +25,24 @@ if (window.innerWidth < 768) {
 } else if (window.innerWidth < 1440) {
   perPage = 10;
 }
+
+nonDesktop.addEventListener('change', event => {
+  if (event.matches) {
+    console.log('tablet');
+    perPage = 10;
+    updateMarkup();
+    pagination.style.display = 'block';
+  }
+});
+
+desktop.addEventListener('change', event => {
+  if (event.matches) {
+    console.log('desktop');
+    perPage = 999;
+    updateMarkup();
+    pagination.style.display = 'none';
+  }
+});
 
 exercisesListWrapper.addEventListener('click', deletefromLocalStorage);
 pagination.addEventListener('click', onPageShow);
@@ -102,6 +122,10 @@ function splitArrayIntoSubarrays(arr, subarraySize) {
 }
 
 function updateMarkup() {
+  if (arrFavoriteExercises.length <= perPage) {
+    pagination.style.display = 'none';
+  }
+
   if (!isDesktop) {
     const splitArrFavoriteExercises = splitArrayIntoSubarrays(
       arrFavoriteExercises,
