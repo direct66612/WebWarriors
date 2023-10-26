@@ -1,4 +1,4 @@
-import{s as h,a as w,r as M,b as P,n as L,N as v}from"./pagination-markup-c9829de1.js";function S(e){return e.map(t=>{const{name:r,burnedCalories:s,time:i,bodyPart:d,target:y,_id:g}=t.data;return`
+import{s as h,a as w,r as M,b as P,n as L,N as v}from"./pagination-markup-e223a62f.js";function S(e){return e.map(t=>{const{name:r,burnedCalories:s,time:i,bodyPart:d,target:y,_id:g}=t.data;return`
       <div class="favorites-exercise-card" data-modal-open data-id="${g}">
       <div class="exercise-card-top">
         <p class="exercise-card-top-text">WORKOUT</p>
