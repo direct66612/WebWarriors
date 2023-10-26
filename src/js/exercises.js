@@ -60,7 +60,7 @@ export function handleToExercises(event) {
 
   filterList.querySelector('.active').disabled = false;
   list.innerHTML = loader;
-  form.reset();
+  clearInput();
   pagination.removeEventListener('click', onCategoriesPage);
   pagination.addEventListener('click', onExercisesPage);
   exercisesSearchParams.filter = filterList.dataset.filter;
@@ -73,6 +73,8 @@ export function handleToExercises(event) {
     .then(data => {
       if (data.totalPages <= 1) {
         pagination.style.display = 'none';
+      } else {
+        pagination.style.display = 'block';
       }
 
       const categoryName =
