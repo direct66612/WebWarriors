@@ -30,7 +30,7 @@ function openModal() {
     backdrop.removeEventListener('click', closeModal);
     // backdrop.addEventListener('click', closeModal);
 
-    updateFavoriteButtonStatus(exercise);
+    updateFavoriteButtonStatus(exercise[0]._id);
   }
 }
 
