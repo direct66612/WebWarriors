@@ -5,7 +5,7 @@ import { getExercisesMarkup } from './api-service/exercises-category-api';
 import { createMarkup } from './templates/exercises-category-markup';
 import { returnPaginationRange } from './utils/utils';
 import { renderPagination } from './templates/pagination-markup';
-import { onExercisesPage } from './exercises';
+import { clearInput, onExercisesPage } from './exercises';
 import { loader } from './templates/loader';
 
 const refs = {
@@ -59,6 +59,7 @@ function handleFilter(event) {
 
   refs.title.textContent = 'Exercises';
   refs.form.classList.add('is-hidden');
+  clearInput();
   refs.list.dataset.filter = filter;
   getExercisesMarkup(filter, page)
     .then(data => {
