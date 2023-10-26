@@ -148,7 +148,7 @@ function handleSearch(event) {
     });
 }
 
-function clearInput() {
+export function clearInput() {
   form.reset();
 
   // Create and dispatch an 'input' event
