@@ -26,6 +26,10 @@ refs.list.addEventListener('click', handleFilter);
 refs.newList.innerHTML = loader;
 getExercisesMarkup(refs.list.dataset.filter, page)
   .then(data => {
+    if (data.totalPages === 1) {
+      refs.pagination.style.display = 'none';
+    }
+
     refs.newList.innerHTML = '';
     addMarkup(data.results);
     let array = returnPaginationRange(data.totalPages, page);
@@ -58,6 +62,12 @@ function handleFilter(event) {
   refs.list.dataset.filter = filter;
   getExercisesMarkup(filter, page)
     .then(data => {
+      if (data.totalPages <= 1) {
+        refs.pagination.style.display = 'none';
+      } else {
+        refs.pagination.style.display = 'block ';
+      }
+
       addMarkup(data.results);
       let array = returnPaginationRange(data.totalPages, page);
       refs.pagination.innerHTML = renderPagination(page, array);
