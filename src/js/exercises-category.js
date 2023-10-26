@@ -5,7 +5,7 @@ import { getExercisesMarkup } from './api-service/exercises-category-api';
 import { createMarkup } from './templates/exercises-category-markup';
 import { returnPaginationRange } from './utils/utils';
 import { renderPagination } from './templates/pagination-markup';
-import { onExercisesPage } from './exercises';
+import { clearInput, onExercisesPage } from './exercises';
 import { loader } from './templates/loader';
 
 const refs = {
