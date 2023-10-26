@@ -86,13 +86,13 @@ export function handleToExercises(event) {
 
 const searchIcon = `
   <svg class="search-icon" width="26" height="26">
-    <use href="../img/symbol-defs.svg#icon-search"></use>
+    <use href="./img/symbol-defs.svg#icon-search"></use>
   </svg>
 `;
 
 const clearIcon = `
   <svg class="clear-icon" width="18" height="18">
-    <use href="../img/symbol-defs.svg#icon-remove"></use>
+    <use href="./img/symbol-defs.svg#icon-remove"></use>
   </svg>
 `;
 
