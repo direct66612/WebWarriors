@@ -104,20 +104,27 @@ body {
   margin-top: 16px;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
-.exercice-card-indexes {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+
+.exercise-card-bottom > p {
   color: rgba(36, 36, 36, 0.4);
   font-size: 12px;
-  line-height: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  white-space: nowrap;
+  letter-spacing: -0.3;
 }
-.exercice-card-indexes-values {
-  margin-right: 10px;
+
+.exercise-card-bottom > p:last-child {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.exercise-card-bottom span {
   color: #242424;
 }
+
 @media screen and (min-width: 768px) {
   .favorites-container {
     padding-top: 100px;
