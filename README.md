@@ -3,9 +3,6 @@
 "Your Energy" is a group project aimed at practicing HTML, CSS, and JS
 practicing. It is a fitness app built using vanilla JavaScript, HTML, and CSS.
 
-<img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-1.png" width="auto" height="400">
-<img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-2.png" width="auto" height="400"><img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-3.png" width="auto" height="400">
-
 ## Our team members
 
 #### Scrum: [Ivan (Fa11enSky)](https://github.com/Fa11enSky) 😱
