@@ -9,14 +9,17 @@ function scrollFunction() {
     document.body.scrollTop > 200 ||
     document.documentElement.scrollTop > 200
   ) {
-    scrollButton.style.display = "block";
+    scrollButton.style.opacity = 1;
   } else {
-    scrollButton.style.display = "none";
+    scrollButton.style.opacity = 0;
   }
 }
 
-scrollButton.addEventListener("click", backToTop);
+scrollButton.addEventListener("click", function() {
+  backToTop();
+  scrollButton.blur();
+});
 
 function backToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
