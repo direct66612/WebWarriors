@@ -66,7 +66,7 @@
 }
 .modal-img {
   display: block;
-  widows: 100%;
+  width: 100%;
   margin: 0 auto;
   border-radius: 12px;
   margin-bottom: 20px;
@@ -196,7 +196,7 @@
   font-style: normal;
   line-height: 18px;
 }
-.btn-give-rating:hover{
+.btn-give-rating:hover {
   display: inline-flex;
   padding: 12px 24px;
   justify-content: center;
@@ -214,24 +214,24 @@
     max-width: 705px;
     padding: 32px;
   }
-.ex-wrapper {
-  display: flex;
-  gap: 28px;
-  margin-bottom: 64px;
-}
+  .ex-wrapper {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 64px;
+  }
   .modal-img {
     max-width: 270px;
   }
   .ex-title {
-  margin-bottom: 8px;
-}
-.rating-container {
-  margin-bottom: 16px;
-}
-.info-list {
- gap: 16px;
- margin-bottom: 16px;
-}
+    margin-bottom: 8px;
+  }
+  .rating-container {
+    margin-bottom: 16px;
+  }
+  .info-list {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
 }
 
 @media screen and (min-width: 1440px) {

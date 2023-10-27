@@ -13,9 +13,17 @@ const refs = {
 refs.closeModalBtn.addEventListener('click', closeModal);
 
 setTimeout(() => {
+  const wasModalOpened = sessionStorage.getItem('wasModalOpened');
+
+  if (wasModalOpened) {
+    return;
+  }
+
   refs.modal.classList.remove('hidden');
   refs.body.classList.add('no-scroll');
-}, 10000);
+
+  sessionStorage.setItem('wasModalOpened', !wasModalOpened);
+}, 2000);
 
 window.addEventListener('click', e => {
   if (e.target === refs.backdrop) {
