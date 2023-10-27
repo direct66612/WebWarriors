@@ -1,8 +1,6 @@
-:root {}
-
 footer {
   background-color: #242424;
-  color: #F4F4F4;
+  color: #f4f4f4;
   max-width: 100%;
   height: auto;
 }
@@ -13,7 +11,6 @@ footer {
 
 .footer-container-ftr {
   margin-bottom: 100px;
-
 }
 
 .footer-logo {
@@ -46,21 +43,21 @@ footer {
 }
 
 .footer-social-link {
-  border: 1px solid rgba(244, 244, 244, 0.10);
+  border: 1px solid rgba(244, 244, 244, 0.1);
   width: 100%;
   height: 100%;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #F4F4F4;
+  color: #f4f4f4;
 }
 
 .footer-social-link:hover,
 .footer-social-link:focus {
   border-radius: 10px;
-  border: 1px solid rgba(244, 244, 244, 0.10);
-  background-color: #F4F4F4;
+  border: 1px solid rgba(244, 244, 244, 0.1);
+  background-color: #f4f4f4;
   color: #242424;
 }
 
@@ -77,12 +74,12 @@ footer {
 }
 
 .footer-form {
-  width: 335px;
+  /* max-width: 335px; */
   padding-bottom: 20px;
 }
 
 .footer-text {
-  color: #F4F4F4;
+  color: #f4f4f4;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -92,7 +89,7 @@ footer {
 }
 
 .italic-word {
-  color: #F4F4F4;
+  color: #f4f4f4;
   font-size: 40px;
   font-style: italic;
   font-weight: 400;
@@ -104,10 +101,8 @@ footer {
   font-style: italic;
 }
 
-.subscribe-form {}
-
 .subscribe-text {
-  color: #F4F4F4;
+  color: #f4f4f4;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -123,15 +118,14 @@ footer {
 #subscribe-button {
   display: flex;
   max-width: 335px;
-  padding: 12px 150px;
+  padding: 12px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   border-radius: 30px;
-  background: #F4F4F4;
+  background: #f4f4f4;
   border: none;
   cursor: pointer;
-
 }
 
 #email-input {
@@ -141,9 +135,9 @@ footer {
   padding: 12px 14px;
   align-items: center;
   border-radius: 30px;
-  border: 1px solid #F4F4F4;
+  border: 1px solid #f4f4f4;
   background-color: #242424;
-  color: rgba(244, 244, 244, 0.60);
+  color: rgba(244, 244, 244, 0.6);
   max-width: 335px;
 }
 
@@ -153,7 +147,7 @@ footer {
 }
 
 .copyright-text {
-  color: #C6CDD1;
+  color: #c6cdd1;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -164,7 +158,7 @@ footer {
 }
 
 .copyright-link {
-  color: #C6CDD1;
+  color: #c6cdd1;
   text-align: right;
   font-size: 14px;
   font-style: normal;
@@ -182,7 +176,7 @@ footer {
 }
 
 .copyright-ftr {
-  color: #C6CDD1;
+  color: #c6cdd1;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -249,14 +243,14 @@ footer {
   }
 
   .footer-text {
-    color: #F4F4F4;
+    color: #f4f4f4;
     font-size: 56px;
     line-height: 1.07;
     letter-spacing: -1.12px;
   }
 
   .italic-word {
-    color: #F4F4F4;
+    color: #f4f4f4;
     font-size: 56px;
     font-style: italic;
     line-height: 1.07;
@@ -270,7 +264,7 @@ footer {
   }
 
   .subscribe-text {
-    color: #F4F4F4;
+    color: #f4f4f4;
     font-size: 18px;
     line-height: 1.33;
   }
@@ -288,8 +282,8 @@ footer {
     gap: 10px;
     line-height: 1.5;
     border-radius: 30px;
-    border: 1px solid #F4F4F4;
-    color: rgba(244, 244, 244, 0.60);
+    border: 1px solid #f4f4f4;
+    color: rgba(244, 244, 244, 0.6);
     font-size: 16px;
     background-color: #242424;
   }
@@ -301,11 +295,10 @@ footer {
     align-items: center;
     gap: 8px;
     border-radius: 30px;
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     color: #242424;
     font-size: 16px;
     line-height: 1.5;
-
   }
 
   .copyright {
@@ -313,7 +306,7 @@ footer {
   }
 
   .copyright-text {
-    color: #C6CDD1;
+    color: #c6cdd1;
     font-size: 14px;
     line-height: 1.28;
     letter-spacing: -0.28px;
@@ -322,7 +315,7 @@ footer {
   }
 
   .copyright-footer-text {
-    color: #C6CDD1;
+    color: #c6cdd1;
     text-align: right;
     font-size: 14px;
     line-height: 1.28;
@@ -330,7 +323,7 @@ footer {
   }
 
   .copyright-link {
-    color: #C6CDD1;
+    color: #c6cdd1;
     text-align: right;
     font-size: 14px;
     line-height: 1.28;
@@ -338,7 +331,7 @@ footer {
   }
 
   .copyright-ftr {
-    color: #C6CDD1;
+    color: #c6cdd1;
     font-size: 14px;
     line-height: 1.28;
     letter-spacing: -0.28px;
@@ -351,7 +344,6 @@ footer {
 /*! Media 1440*/
 
 @media screen and (min-width: 1440px) {
-
   .footer {
     max-width: 100%;
     flex-direction: row;
@@ -404,7 +396,7 @@ footer {
     align-items: center;
     gap: 8px;
     border-radius: 30px;
-    background: #F4F4F4;
+    background: #f4f4f4;
   }
 
   .copyright-text {
