@@ -28,7 +28,6 @@ if (window.innerWidth < 768) {
 
 nonDesktop.addEventListener('change', event => {
   if (event.matches) {
-    console.log('tablet');
     perPage = 10;
     updateMarkup();
     pagination.style.display = 'block';
@@ -37,7 +36,6 @@ nonDesktop.addEventListener('change', event => {
 
 desktop.addEventListener('change', event => {
   if (event.matches) {
-    console.log('desktop');
     perPage = 999;
     updateMarkup();
     pagination.style.display = 'none';
