@@ -1,3 +1,4 @@
+import './js/global';
 import './js/header';
 import './js/exercises-aside';
 import './js/exercises-main';
