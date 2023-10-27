@@ -1,0 +1,49 @@
+import{s as E,a as k,r as N,b as P,n as b,N as h}from"./pagination-markup-215473fb.js";function S(e){return e.map(t=>{const{name:r,burnedCalories:n,time:i,bodyPart:u,target:x,_id:v}=t.data;return`
+      <div class="favorites-exercise-card" data-modal-open data-id="${v}">
+      <div class="exercise-card-top">
+        <p class="exercise-card-top-text">WORKOUT</p>
+        <button class="exercise-card-remove-btn">
+          <svg
+            class="exercise-card-remove-icon"
+            width="16"
+            height="16">
+            <use
+              href="${E}#icon-exercises-content-garbage"
+            ></use>
+          </svg>
+        </button>
+        <button class="exercise-card-start-btn" data-id="${v}">
+          Start
+          <svg
+            class="exercise-card-start-icon"
+            width="16"
+            height="16">
+            <use
+              href="${E}#icon-scroll-arrow"
+            ></use>
+          </svg>
+        </button>
+      </div>
+      <div class="exercise-card-mid">
+        <div class="man-icon-wrapper">
+          <svg
+            class="exercise-card-man-icon"
+            width="20"
+            height="20">
+            <use href="${E}#icon-aside-men"></use>
+          </svg>
+        </div>
+        <h3 class="exercise-card-title">${r}</h3>
+      </div>
+      <div class="exercise-card-bottom">
+        <p>Burned calories: <span>${n} / ${i} min</span></p>
+        <p>Body part: <span class="capitalize">${u}</span></p>
+        <p>Target: <span class="capitalize">${x}</span></p>
+      </div>
+    </div>`}).join("")}const d=document.querySelector(".backdrop-ex"),W=document.querySelector(".modal-close-btn"),m=document.querySelector(".modal-ex"),j="favoriteExercises",J=document.querySelector(".favorites-not-found-text"),K=document.querySelector(".favorites-exercise-card-wrapper"),V=document.querySelector(".pagination-nav");W.addEventListener("click",g);document.addEventListener("keydown",q);const C=document.querySelector(".rating-feedback-form");d.addEventListener("click",e=>{e.target===d&&g()});function G(){m&&(document.querySelector("body").style.overflow="hidden",m.classList.remove("is-hidden"),d.classList.remove("is-hidden"),document.addEventListener("keydown",q),m.addEventListener("click",e=>{e.stopPropagation()}),d.removeEventListener("click",g),A(a[0]._id))}function g(){m&&(document.querySelector("body").style.overflow="visible",m.classList.add("is-hidden"),document.removeEventListener("keydown",q),d.removeEventListener("click",g),d.classList.add("is-hidden"),C.classList.add("visually-hidden"),C.classList.remove("rating-form-active"))}function q(e){e.key==="Escape"&&g()}document.addEventListener("DOMContentLoaded",()=>{document.querySelector(".favorites-exercise-card-wrapper").addEventListener("click",async t=>{const r=t.target.closest(".exercise-card-start-btn");if(!r)return;let n=r.dataset.id;try{const i=await X(n);i&&(a=i,A(a),G())}catch(i){console.log(i)}})});let I,a;function U(e){I=e}async function X(e){const t=`https://your-energy.b.goit.study/api/exercises/${e}`;try{return a=[(await k.get(t)).data],U(e),z(a),Y(a),Q(a),Z(a),ee(a),te(a),a}catch(r){console.log(r)}}function z(e){const t=document.querySelector(".modal-img");t.src=e[0].gifUrl}function Y(e){const t=document.querySelector(".ex-title");t.textContent=e[0].name}function Q(e){const t=document.querySelector(".ex-description");t.textContent=e[0].description}function Z(e){const t=document.querySelector(".ratinng-value");t.textContent=Number.isInteger(e[0].rating)?`${e[0].rating}.0`:e[0].rating}function ee(e){const t=document.querySelector(".info-list");t.innerHTML=e.map(r=>{const{bodyPart:n,burnedCalories:i,target:u,equipment:x,popularity:v,time:D}=r;return`
+      <li class="info-item_info"><span>Target</span> <span class="info-item">${u}</span></li>
+      <li class="info-item_info"><span>Body Part</span> <span class="info-item">${n}</span></li>
+      <li class="info-item_info"><span>Equipment</span> <span class="info-item">${x}</span></li>
+      <li class="info-item_info"><span>Popular</span> <span class="info-item">${v}</span></li>
+      <li class="info-item_info"><span>Burned Calories</span> <span class="info-item">${i}/${D} min</span></li>
+  `}).join("")}function te(e){const t=parseFloat(e[0].rating),r=document.querySelectorAll(".modal-rating-star-icon");for(let n=0;n<r.length;n++)n<t?r[n].classList.add("active"):r[n].classList.remove("active")}function M(){return JSON.parse(localStorage.getItem("favoriteExercises"))||[]}function O(e){localStorage.setItem(j,JSON.stringify(e))}function B(e){return M().some(n=>n===e)}function re(e){const t=M();t.push(e),O(t)}function ne(e){const r=M().filter(n=>n!==e);O(r),r.length===0?(J.style.display="block",K.innerHTML="",V.innerHTML=""):p(r)}const y=document.querySelector(".btn-add-favorite");y.addEventListener("click",()=>{const e=a[0]._id;B(e)?(ne(e),y.textContent="Add to favorite ♡"):(re(e),y.textContent="Remove from favorite 🗑")});function A(e){const t=B(e);y.textContent=t?"Remove from favorite 🗑":"Add to favorite ♡"}async function w(e){const t=e.map(async n=>await k.get(`https://your-energy.b.goit.study/api/exercises/${n}`));return await Promise.all(t)}const T=document.querySelector(".favorites-not-found-text"),f=document.querySelector(".favorites-exercise-card-wrapper"),se=document.querySelector(".favorites-exercise-wrapper"),l=document.querySelector(".pagination-nav"),ie=window.matchMedia("(max-width: 1339px)"),ae=window.matchMedia("(min-width: 1440px)");let L=1,c;const oe=window.innerWidth>=1440;window.innerWidth<768?c=8:window.innerWidth<1440&&(c=10);ie.addEventListener("change",e=>{e.matches&&(c=10,p(o),l.style.display="block")});ae.addEventListener("change",e=>{e.matches&&(c=999,p(o),l.style.display="none")});se.addEventListener("click",le);l.addEventListener("click",ce);let o=JSON.parse(localStorage.getItem("favoriteExercises"))||[];o.length?(T.style.display="none",p(o)):T.style.display="block";function ce(e){let t=e.target.dataset.page;if(t==="..."||!e.target.classList.contains("js-page-link")||e.target.classList.contains("active"))return;t=Number(t),window.scrollTo({top:f.offsetTop-180});const r=R(o,c),n=Math.ceil(o.length/c);w(r[t-1]).then(i=>{f.innerHTML=S(i);const u=N(n,t);l.innerHTML=P(t,u)}).catch(i=>{console.log(i),b.Notify.failure("Oops. Something went wrong. Please refresh the page.")})}function le(e){if(!e.target.closest(".exercise-card-remove-btn"))return;const t=e.target.closest(".favorites-exercise-card").dataset.id;o=o.filter(r=>r!==t),localStorage.setItem("favoriteExercises",JSON.stringify(o)),o.length===0?(T.style.display="block",f.innerHTML="",l.innerHTML=""):p(o)}function R(e,t){const r=[];for(let n=0;n<e.length;n+=t)r.push(e.slice(n,n+t));return r}function p(e){if(e.length<=c&&(l.style.display="none"),oe)w(e).then(t=>{f.innerHTML=S(t)}).catch(t=>{console.log(t),b.Notify.failure("Oops. Something went wrong. Please refresh the page.")});else{const t=R(e,c),r=Math.ceil(e.length/c);w(t[L-1]).then(n=>{f.innerHTML=S(n);const i=N(r,L);l.innerHTML=P(L,i)}).catch(n=>{console.log(n),b.Notify.failure("Oops. Something went wrong. Please refresh the page.")})}}const s={closeBtn:document.querySelector(".close-rating-btn"),ratingStars:document.querySelector(".rating-stars"),ratingForm:document.querySelector(".rating-feedback-form"),stars:document.querySelectorAll(".star"),openModalBtn:document.querySelector(".btn-give-rating"),exerciseModal:document.querySelector(".modal-ex"),ratingNumber:document.querySelector(".rating-number")};s.closeBtn.addEventListener("click",F);s.ratingStars.addEventListener("change",de);s.ratingForm.userEmail.addEventListener("input",H);s.ratingForm.userEmail.addEventListener("change",e=>{H(e)||_(e.currentTarget)});s.closeBtn.addEventListener("click",F);s.ratingForm.comment.addEventListener("change",me);s.ratingForm.addEventListener("submit",pe);function de(e){e.currentTarget.firstElementChild,s.ratingNumber.textContent=e.target.value+".0",e.target.labels[0].children[0].classList.add("animate");const t=setTimeout(()=>{e.target.labels[0].children[0].classList.remove("animate"),clearTimeout(t)},1700)}function $(e){e.style.borderColor="#f4f4f4"}function _(e){e.classList.add("error"),setTimeout(()=>{e.classList.remove("error")},600)}function ue(e){e.classList.add("form-error"),setTimeout(()=>{e.classList.remove("form-error")},800)}function H(e){return/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu.test(e.currentTarget.value)?(e.currentTarget.style.borderColor="#acdb9de5",!0):(e.currentTarget.style.borderColor="#bd7a7ae5",!1)}function me(e){e.currentTarget.value.length<5?(e.currentTarget.style.borderColor="#bd7a7ae5",_(e.currentTarget)):e.currentTarget.style.borderColor="#acdb9de5"}function fe(e,t,r){return{rate:e,email:t,review:r}}function ge(e,t){k.patch(`/exercises/${e}/rating`,t).then(r=>{h.Notify.success("Success"),F()}).catch(r=>{h.Notify.failure(r.response.data.message),ue(s.ratingForm)})}function pe(e){if(e.preventDefault(),!e.currentTarget.elements.userEmail.validity.valid){h.Notify.failure("Check email");return}let t=document.querySelector('input[name="star"]:checked');if(t===null){h.Notify.failure("Please select rating stars");return}const r=fe(Number(t.value),e.currentTarget.elements.userEmail.value,e.currentTarget.elements.comment.value);ge(I,r),$(e.currentTarget.elements.userEmail),$(e.currentTarget.elements.comment),s.ratingNumber.textContent="0.0",e.currentTarget.reset()}s.openModalBtn.addEventListener("click",ve);function ve(e){s.ratingForm.classList.remove("visually-hidden"),s.ratingForm.classList.add("rating-form-active"),s.exerciseModal.classList.add("is-hidden")}function F(){s.ratingForm.classList.add("visually-hidden"),s.ratingForm.classList.remove("rating-form-active"),s.exerciseModal.classList.remove("is-hidden")}
