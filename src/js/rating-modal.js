@@ -30,7 +30,6 @@ ratingRefs.ratingForm.addEventListener('submit', rateFormSubmit);
 function onStarClick(ev) {
   const ratingValue = ev.currentTarget.firstElementChild;
   ratingRefs.ratingNumber.textContent = ev.target.value + '.0';
-  console.log(ratingValue)
   ev.target.labels[0].children[0].classList.add('animate');
   // starsColorReset(ratingRefs.stars);
   // changeStarColor(ev.target.value, ratingRefs.stars);
@@ -106,7 +105,7 @@ function servicePatchRate(id, rateObj) {
     })
     .catch(err => {
       Notiflix.Notify.failure(err.response.data.message);
-      addErrorToElPositionAbsolute(ratingRefs.ratingForm)
+      addErrorToElPositionAbsolute(ratingRefs.ratingForm);
     });
 }
 
@@ -133,20 +132,19 @@ function rateFormSubmit(ev) {
   setDefaultColorInput(ev.currentTarget.elements.comment);
   // starsColorReset(ratingRefs.stars);
   ratingRefs.ratingNumber.textContent = '0.0';
-  
+
   ev.currentTarget.reset();
-  
 }
 ratingRefs.openModalBtn.addEventListener('click', ratingModalOpen);
 function ratingModalOpen(ev) {
   // ratingRefs.ratingForm.dataset.id = ev.currentTarget.dataset.id;
   ratingRefs.ratingForm.classList.remove('visually-hidden');
-  ratingRefs.ratingForm.classList.add('rating-form-active')
+  ratingRefs.ratingForm.classList.add('rating-form-active');
   ratingRefs.exerciseModal.classList.add('is-hidden');
 }
 
 function ratingModalClose() {
   ratingRefs.ratingForm.classList.add('visually-hidden');
-ratingRefs.ratingForm.classList.remove('rating-form-active')
+  ratingRefs.ratingForm.classList.remove('rating-form-active');
   ratingRefs.exerciseModal.classList.remove('is-hidden');
 }

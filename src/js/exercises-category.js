@@ -110,7 +110,6 @@ export function onCategoriesPage(event) {
 
 function addMarkup(data) {
   if (Array.isArray(data)) {
-    console.log(data);
     refs.newList.innerHTML = createMarkup(data);
   } else {
     console.error('Data is not an array:', data);
