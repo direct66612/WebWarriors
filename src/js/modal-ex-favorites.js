@@ -5,6 +5,11 @@ const backdrop = document.querySelector('.backdrop-ex');
 const closeButton = document.querySelector('.modal-close-btn');
 const modal = document.querySelector('.modal-ex');
 const KEY_LS = 'favoriteExercises';
+const messageNone = document.querySelector('.favorites-not-found-text');
+const favoritsWorkoutsList = document.querySelector(
+  '.favorites-exercise-card-wrapper'
+);
+const pagination = document.querySelector('.pagination-nav');
 
 closeButton.addEventListener('click', closeModal);
 document.addEventListener('keydown', onEscKeyPress);
@@ -189,7 +194,14 @@ function removeFromFavorites(exerciseId) {
   );
 
   saveFavoriteExercises(updatedFavoriteExercises);
-  updateMarkup(updatedFavoriteExercises);
+
+  if (updatedFavoriteExercises.length === 0) {
+    messageNone.style.display = 'block';
+    favoritsWorkoutsList.innerHTML = '';
+    pagination.innerHTML = '';
+  } else {
+    updateMarkup(updatedFavoriteExercises);
+  }
 }
 
 const addToFavoriteButton = document.querySelector('.btn-add-favorite');
