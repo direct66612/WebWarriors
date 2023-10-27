@@ -29,7 +29,7 @@ if (window.innerWidth < 768) {
 nonDesktop.addEventListener('change', event => {
   if (event.matches) {
     perPage = 10;
-    updateMarkup();
+    updateMarkup(arrFavoriteExercises);
     pagination.style.display = 'block';
   }
 });
@@ -37,7 +37,7 @@ nonDesktop.addEventListener('change', event => {
 desktop.addEventListener('change', event => {
   if (event.matches) {
     perPage = 999;
-    updateMarkup();
+    updateMarkup(arrFavoriteExercises);
     pagination.style.display = 'none';
   }
 });
@@ -50,7 +50,7 @@ let arrFavoriteExercises =
 
 if (arrFavoriteExercises.length) {
   messageNone.style.display = 'none';
-  updateMarkup();
+  updateMarkup(arrFavoriteExercises);
 } else {
   messageNone.style.display = 'block';
 }
@@ -106,7 +106,7 @@ function deletefromLocalStorage(event) {
     favoritsWorkoutsList.innerHTML = '';
     pagination.innerHTML = '';
   } else {
-    updateMarkup();
+    updateMarkup(arrFavoriteExercises);
   }
 }
 
@@ -119,7 +119,7 @@ function splitArrayIntoSubarrays(arr, subarraySize) {
   return result;
 }
 
-function updateMarkup() {
+export function updateMarkup(arrFavoriteExercises) {
   if (arrFavoriteExercises.length <= perPage) {
     pagination.style.display = 'none';
   }
