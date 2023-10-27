@@ -14,7 +14,7 @@ refs.closeModalBtn.addEventListener('click', closeModal);
 setTimeout(() => {
   refs.modal.classList.remove('hidden');
   refs.body.classList.add('no-scroll');
-}, 4000);
+}, 10000);
 
 window.addEventListener('click', e => {
   if (e.target === refs.backdrop) {
