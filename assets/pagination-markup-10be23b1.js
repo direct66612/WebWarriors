@@ -40,4 +40,4 @@ Notiflix needs to be appended to the "<`+O+'>" element, but you called it before
           </li>
         `).join("")}
     </ul>
-  `}export{Jh as N,gf as a,Kx as b,Ho as c,Hl as n,Gx as r,$x as s};
+  `}export{Jh as N,gf as a,Kx as b,ie as c,Ho as d,Hl as n,Gx as r,$x as s};
