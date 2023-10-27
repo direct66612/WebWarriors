@@ -1,5 +1,4 @@
 .top-button {
-    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -9,6 +8,7 @@
     background-color: #242424;
     cursor: pointer;
     border-radius: 50%;
+    opacity: 0;
     transition: 0.6s ease;
 }
 
