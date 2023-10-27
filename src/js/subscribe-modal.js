@@ -23,7 +23,7 @@ setTimeout(() => {
   refs.body.classList.add('no-scroll');
 
   sessionStorage.setItem('wasModalOpened', !wasModalOpened);
-}, 2000);
+}, 10000);
 
 window.addEventListener('click', e => {
   if (e.target === refs.backdrop) {
