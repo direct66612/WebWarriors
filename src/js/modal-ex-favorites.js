@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { updateMarkup } from './favorites';
 
 const backdrop = document.querySelector('.backdrop-ex');
 const closeButton = document.querySelector('.modal-close-btn');
@@ -51,12 +52,6 @@ function onEscKeyPress(event) {
     closeModal();
   }
 }
-
-// backdrop.addEventListener('click', event => {
-//   if (event.target === backdrop) {
-//     closeModal();
-//   }
-// });
 
 document.addEventListener('DOMContentLoaded', () => {
   const exercisesContainer = document.querySelector(
@@ -194,6 +189,7 @@ function removeFromFavorites(exerciseId) {
   );
 
   saveFavoriteExercises(updatedFavoriteExercises);
+  updateMarkup(updatedFavoriteExercises);
 }
 
 const addToFavoriteButton = document.querySelector('.btn-add-favorite');
