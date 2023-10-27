@@ -14,6 +14,7 @@
 @import url('./exercises-header.css');
 @import url('./exercises-workouts.css');
 @import url('./loader.css');
+@import url('./subscribe-modal.css');
 
 :root {
   font-size: 14px;
