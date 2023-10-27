@@ -14,3 +14,4 @@ import './js/exercises-category.js';
 import './js/templates/exercises-category-markup.js';
 import './js/modal-ex';
 import './js/rating-modal';
+import './js/subscribe-modal';
