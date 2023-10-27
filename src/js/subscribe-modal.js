@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const refs = {
   closeModalBtn: document.querySelector('.close-subscribe-btn'),
@@ -31,6 +32,8 @@ window.addEventListener('keydown', e => {
 function closeModal() {
   refs.modal.classList.add('hidden');
   refs.body.classList.remove('no-scroll');
+
+  refs.form.reset();
 }
 
 refs.form.addEventListener('submit', handleSubmit);
@@ -46,10 +49,16 @@ function handleSubmit(event) {
 
   sendSubscription(user)
     .then(response => {
-      Notify.success(response.data.message);
+      closeModal();
+      Report.success('You are subscribed now!', response.data.message, 'Okay');
     })
     .catch(error => {
-      Notify.failure(error.response.data.message);
+      if (error.response.status === 409) {
+        Notify.failure('User with such email already exist');
+      } else {
+        Notify.failure(error.response.data.message);
+        closeModal();
+      }
     });
 }
 
