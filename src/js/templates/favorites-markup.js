@@ -43,7 +43,9 @@ export function createMarkup(array) {
         <h3 class="exercise-card-title">${name}</h3>
       </div>
       <div class="exercise-card-bottom">
-        <p class="exercice-card-indexes">Burned calories: <span class="exercice-card-indexes-values">${burnedCalories} / ${time} min</span>Body part: <span class="exercice-card-indexes-values">${bodyPart}</span>Target: <span class="exercice-card-indexes-values">${target}</span></p>
+        <p>Burned calories: <span>${burnedCalories} / ${time} min</span></p>
+        <p>Body part: <span class="capitalize">${bodyPart}</span></p>
+        <p>Target: <span class="capitalize">${target}</span></p>
       </div>
     </div>`;
     })
